@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+    <section id="cover-page">
+        <div class="fade-in name-title">The Beginning of Forever With</div>
+        <div class="fade-in couple-names">Morgane & Alexander</div>
+        
+        <div class="envelope-container fade-in">
+            <img src="assets/envelope-closed.png" alt="Envelope" class="envelope-img">
+            <img src="assets/flower-bouquet.png" alt="Flowers" class="flower-overlay">
+        </div>
+
+        <button id="open-btn" class="fade-in">TAP TO OPEN</button>
+    </section>
+
+    <div id="main-content" class="hidden">
+        
+<section class="scroll-section">
+            <div class="split-invite-grid">
+                
+                <div class="invite-text-col">
+                    <h2>INVITATION</h2>
+                    <p class="sub">TO CELEBRATE THE WEDDING OF</p>
+                    <div class="script-text">Morgane Wilson</div>
+                    <p class="and">&</p>
+                    <div class="script-text">Alexander Richards</div>
+                    
+                    <div class="open-envelope-display">
+                        <img src="assets/envelope-open.png" alt="Opened Envelope">
+                    </div>
+
+                    <p class="date">JULY 7, 2026</p>
+                    <p class="venue">CIPRIANI WALL STREET,<br>NEW YORK</p>
+                </div>
+
+                <div class="invite-photo-col">
+                    <div class="polaroid main-frame">
+                        <img src="assets/couple1.jpg" alt="Couple Portrait">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="scroll-section">
+            <div class="side-by-side-row">
+                <div class="details-tray">
+                    <img src="assets/silver-tray.png" alt="Silver Tray" class="tray-bg">
+                    <div class="tray-content">
+                        <a href="#rsvp" class="circle-link">The Details<br><span>CLICK HERE</span></a>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="script-text">Our Story</div>
+                    <p class="click-sub">CLICK HERE</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-section">
+            <div class="adjacent-timeline-row">
+                <div class="polaroid-stack tile-1">
+                    <img src="assets/couple2.jpg" alt="Once">
+                    <p class="script-text">Once</p>
+                </div>
+                <div class="polaroid-stack tile-2">
+                    <img src="assets/couple3.jpg" alt="Upon">
+                    <p class="script-text">Upon</p>
+                </div>
+                <div class="polaroid-stack tile-3">
+                    <img src="assets/couple4.jpg" alt="A Time">
+                    <p class="script-text">A Time</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="rsvp" class="scroll-section">
+            <div class="side-by-side-row rsvp-row">
+                <div class="save-date-badge">
+                    <p>Save the Date</p>
+                    <h3>JULY 7, 2026</h3>
+                </div>
+                
+                <div class="rsvp-envelope">
+                    <div class="rsvp-card">
+                        <h2 class="script-text">Kindly RSVP Here</h2>
+                        <p>Please respond by <strong>May 31, 2026</strong></p>
+                        <a href="https://forms.google.com" target="_blank" class="rsvp-submit-btn">Fill RSVP Form</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-section">
+            <div class="elegant-border-box">
+                <h2 class="script-text">Countdown</h2>
+                <div id="timer">
+                    <div class="time-block"><span id="days">00</span><p>DAYS</p></div>
+                    <div class="time-block"><span id="hours">00</span><p>HOURS</p></div>
+                    <div class="time-block"><span id="minutes">00</span><p>MINS</p></div>
+                    <div class="time-block"><span id="seconds">00</span><p>SECS</p></div>
+                </div>
+                <p class="closing">With love and gratitude,<br><strong>Morgane & Alexander</strong></p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
