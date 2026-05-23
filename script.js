@@ -1,30 +1,36 @@
-document.getElementById('open-btn').addEventListener('click', function() {
+function openInvitation() {
     const music = document.getElementById('bg-music');
     music.volume = 0.8;
-
-    music.play().then(function() {
-        console.log("Audio playing seamlessly.");
-    }).catch(function(error) {
-        console.log("Audio stream context noted:", error);
-    });
+    music.play().catch(err => console.log("Audio waiting for core gesture tap:", err));
 
     const cover = document.getElementById('cover-page');
+    const mainContent = document.getElementById('main-content');
+    
+    // Step 1: Smoothly fade out the envelope screen layer
     cover.style.opacity = '0';
     
     setTimeout(function() {
         cover.classList.add('hidden');
         
-        const mainContent = document.getElementById('main-content');
+        // Step 2: Unhide main layout container structural block
         mainContent.classList.remove('hidden');
         
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 800);
-});
+        // Step 3: Trigger the CSS slide-up fade-in transition smoothly
+        setTimeout(function() {
+            mainContent.classList.add('reveal-active');
+        }, 50);
+        
+        window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 800); // Perfect duration pairing with CSS hide rules
+}
 
-// UPDATED TARGET TIMESTAMP: JULY 7, 2026
+// Click Trigger Activation
+document.getElementById('envelope-trigger').addEventListener('click', openInvitation);
+
+// TARGET LIVE TIME STAMP CONFIGURATION: JULY 7, 2026
 const weddingDate = new Date("July 7, 2026 16:00:00").getTime();
 
-const countdownTracker = setInterval(function() {
+setInterval(function() {
     const rightNow = new Date().getTime();
     const timeLeft = weddingDate - rightNow;
 
@@ -38,10 +44,5 @@ const countdownTracker = setInterval(function() {
         document.getElementById("hours").innerText = String(hours).padStart(2, '0');
         document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
         document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-    }
-
-    if (timeLeft < 0) {
-        clearInterval(countdownTracker);
-        document.getElementById("timer").innerHTML = "<h3 style='font-family: var(--font-script); font-size: 2rem;'>The Big Day is Here!</h3>";
     }
 }, 1000);
