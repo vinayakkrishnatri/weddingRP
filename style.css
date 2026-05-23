@@ -93,7 +93,7 @@ body {
 
 .main-closed-envelope {
     width: 100%;
-    max-width: 480px; /* Upgraded 1.3x size increase for bold premium presence */
+    max-width: 480px;
     height: auto;
     display: block;
     filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.12));
@@ -177,7 +177,7 @@ body {
 
 /* CARD 1: GANESH JI & NAMES */
 .ganesha-icon { 
-    width: 80px; /* Bolder, prominent footprint scale */
+    width: 80px; 
     height: auto; 
     margin-bottom: 12px; 
 }
@@ -218,11 +218,31 @@ body {
 .event-meta { font-size: 0.9rem; font-style: italic; color: var(--wedding-pink); margin-bottom: 15px; font-weight: 500; }
 .inner-dashed-box { border: 1px dashed #cbd9c7; background-color: #fcfdfc; padding: 25px 10px; border-radius: 8px; font-size: 0.9rem; color: #999; letter-spacing: 0.5px; }
 
-/* CARD 5: REFORMATTED MAP */
+/* CARD 5: STATIONARY MAP SNAPSHOT DESIGN */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
 .venue-address { font-size: 1.2rem; color: #444; margin: 12px auto 30px auto; font-weight: 500; }
-.interactive-map-box { width: 100%; max-width: 440px; margin: 0 auto 30px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); border: 1px solid #e6dfd5; }
-.interactive-map-box iframe { display: block; }
+
+.interactive-map-box { 
+    width: 100%; 
+    max-width: 440px; 
+    height: 280px; /* Perfectly balances the landscape image height aspect ratio */
+    margin: 0 auto 30px auto; 
+    border-radius: 20px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); 
+    border: 1px solid #e6dfd5; 
+    position: relative;
+    z-index: 10;
+}
+
+/* Key modification: Forces your wide layout screenshot image to fit fully inside without clipping the right-side marker pin */
+.interactive-map-box img.map-img-card {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    background-color: #e5e3df; /* Perfectly mirrors original Google Map background tone */
+    display: block;
+}
 
 .directions-btn {
     display: inline-flex;
@@ -240,12 +260,12 @@ body {
 }
 .directions-btn:hover { transform: scale(1.02); }
 
-/* CARD 6: COMPACT FINAL BANNER (MINIMIZED LANDING SPACE) */
+/* CARD 6: COMPACT FINAL BANNER */
 .compact-brown-banner {
     background-color: #4a3b34;
     color: #f7f1ed;
     text-align: center;
-    padding: 35px 20px; /* Highly streamlined layout footprint */
+    padding: 35px 20px; 
     width: 100%;
 }
 .closing-love { letter-spacing: 4px; font-size: 0.85rem; opacity: 0.75; font-weight: 600; }
@@ -253,7 +273,7 @@ body {
 .closing-date { font-size: 1.1rem; letter-spacing: 2px; font-weight: 400; opacity: 0.9; }
 .hashtag { font-size: 0.9rem; letter-spacing: 2px; margin-top: 15px; font-weight: 600; color: #dfcfc7; }
 
-/* Mobile viewport layout fluid structural scaling rules */
+/* Mobile viewport structural scaling rules */
 @media (max-width: 500px) {
     .main-closed-envelope { width: 92vw; }
     .invite-headline { font-size: 3.5rem; }
@@ -262,4 +282,8 @@ body {
     #timer { gap: 8px; }
     .time-box { width: 74px; padding: 14px 2px; }
     .time-box span { font-size: 1.6rem; }
+    .interactive-map-box {
+        height: 200px; /* Adapts cleanly on small smartphone displays */
+        max-width: 90vw;
+    }
 }
