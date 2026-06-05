@@ -58,7 +58,7 @@ body {
     100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
 }
 
-/* --- LANDING COVER SHEET (RE-CENTERED & ENLARGED) --- */
+/* --- LANDING COVER SHEET --- */
 #cover-page {
     height: 100vh;
     width: 100%;
@@ -199,7 +199,7 @@ body {
 .std-title { font-size: 0.9rem; letter-spacing: 3px; color: #777; }
 .std-date { font-family: var(--font-script); font-size: 3.6rem; color: var(--wedding-pink); font-weight: 400; margin-top: 5px; }
 
-#timer { display: flex; justify-content: center; gap: 14px; }
+#timer { display: flex; justify: center; gap: 14px; }
 .time-box { background: white; border: 1px solid #e6dfd5; border-radius: 14px; width: 90px; padding: 18px 5px; box-shadow: 0 6px 15px rgba(0,0,0,0.02); }
 .time-box span { font-size: 2rem; font-weight: 600; color: var(--wedding-pink); display: block; line-height: 1.1; }
 .time-box p { font-size: 0.7rem; letter-spacing: 1px; color: #777; margin-top: 5px; font-weight: 600; }
@@ -211,12 +211,56 @@ body {
 .story-box h3 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; color: #3d4a3b; }
 .story-box p { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
 
-/* CARD 4: EVENTS PLACEHOLDERS */
-.events-container { display: flex; flex-direction: column; gap: 25px; }
-.event-card-placeholder { background: white; padding: 25px 20px; border-radius: 16px; border: 1px solid #dadfc7; text-align: center; }
-.event-card-placeholder h3 { font-size: 1.4rem; color: #2c3b29; margin-bottom: 4px; }
-.event-meta { font-size: 0.9rem; font-style: italic; color: var(--wedding-pink); margin-bottom: 15px; font-weight: 500; }
-.inner-dashed-box { border: 1px dashed #cbd9c7; background-color: #fcfdfc; padding: 25px 10px; border-radius: 8px; font-size: 0.9rem; color: #999; letter-spacing: 0.5px; }
+/* CARD 4: EVENTS SCENE DESIGN (UPDATED FOR YOUR TRANSPARENT PNGs) */
+.events-container { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 30px; 
+}
+
+.event-card { 
+    background: white; 
+    padding: 30px 24px; 
+    border-radius: 20px; 
+    border: 1px solid #eae5db; 
+    text-align: center; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.event-card h3 { 
+    font-size: 1.4rem; 
+    color: #2c3b29; 
+    margin-bottom: 4px; 
+}
+
+.event-meta { 
+    font-size: 0.95rem; 
+    font-style: italic; 
+    color: var(--wedding-pink); 
+    margin-bottom: 20px; 
+    font-weight: 500; 
+}
+
+/* Perfect container backing asset layout context */
+.image-wrapper {
+    background-color: #fdfcf9; 
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.event-illustration {
+    max-width: 100%;
+    height: auto;
+    max-height: 280px; 
+    object-fit: contain;
+    /* Soft shadow edge mapping directly onto transparent PNG outlines */
+    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.12)); 
+}
 
 /* CARD 5: STATIONARY MAP SNAPSHOT DESIGN */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
@@ -225,7 +269,7 @@ body {
 .interactive-map-box { 
     width: 100%; 
     max-width: 440px; 
-    height: 280px; /* Perfectly balances the landscape image height aspect ratio */
+    height: 280px; 
     margin: 0 auto 30px auto; 
     border-radius: 20px; 
     overflow: hidden; 
@@ -235,12 +279,11 @@ body {
     z-index: 10;
 }
 
-/* Key modification: Forces your wide layout screenshot image to fit fully inside without clipping the right-side marker pin */
 .interactive-map-box img.map-img-card {
     width: 100%;
     height: 100%;
     object-fit: contain; 
-    background-color: #e5e3df; /* Perfectly mirrors original Google Map background tone */
+    background-color: #e5e3df; 
     display: block;
 }
 
@@ -271,9 +314,8 @@ body {
 .closing-love { letter-spacing: 4px; font-size: 0.85rem; opacity: 0.75; font-weight: 600; }
 .closing-couple { font-family: var(--font-script); font-size: 3.2rem; font-weight: 400; margin: 8px 0; color: #ecdcd3; }
 .closing-date { font-size: 1.1rem; letter-spacing: 2px; font-weight: 400; opacity: 0.9; }
-.hashtag { font-size: 0.9rem; letter-spacing: 2px; margin-top: 15px; font-weight: 600; color: #dfcfc7; }
 
-/* Mobile viewport structural scaling rules */
+/* Responsive Adjustments */
 @media (max-width: 500px) {
     .main-closed-envelope { width: 92vw; }
     .invite-headline { font-size: 3.5rem; }
@@ -283,7 +325,10 @@ body {
     .time-box { width: 74px; padding: 14px 2px; }
     .time-box span { font-size: 1.6rem; }
     .interactive-map-box {
-        height: 200px; /* Adapts cleanly on small smartphone displays */
+        height: 200px; 
         max-width: 90vw;
+    }
+    .event-illustration {
+        max-height: 220px;
     }
 }
