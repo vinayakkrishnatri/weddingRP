@@ -193,171 +193,199 @@ body {
 
 
 /* ==========================================================================
-   CARD 3: OPTIMIZED LAYOUT MATRIX (NO TEXT CLUTTER & PERFECT IMAGE BALANCE)
+   CARD 3: FULL IMMERSION GEOGRAPHIC STORY REGION (SEAMLESS CONTINUOUS)
    ========================================================================== */
-.card-section .wide-story-body {
-    max-width: 960px !important; 
-    width: 100% !important;
-    margin: 0 auto;
-    display: block !important; 
+.story-section-container {
+    padding: 90px 0 !important; /* Opens up the boundaries fully edges to edges */
+    background-color: var(--card-cream);
 }
 
-/* --- ROW 1: THE GEOGRAPHIC HOMETOWNS --- */
-.roots-row {
+.story-master-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.story-header-center {
+    padding: 0 24px;
+    text-align: center;
+}
+
+/* --- ROW 1: SEAMLESS BACKGROUND SCENERY PANORAMA --- */
+.seamless-roots-row-pane {
+    position: relative;
+    width: 100%;
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between;
-    gap: 30px;
-    margin-bottom: 40px;
-    width: 100%;
+    align-items: stretch;
+    min-height: 540px;
+    margin-bottom: 60px;
+    padding: 40px 60px 180px 60px; /* Secure clear space above scenery anchors */
 }
 
-.root-box {
-    position: relative;
-    width: 48% !important; 
-    background: #ffffff;
-    border-radius: 24px;
-    padding: 40px 30px 150px 30px; /* Generous space at bottom prevents illustration text overlap */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-    border: 1px solid #eae5db;
-    overflow: hidden;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-/* Landscape background masking - switches to contain to fix cropping issues */
-.root-box::before {
+/* Injecting Allahabad directly into the left side boundary background */
+.seamless-roots-row-pane::before {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 140px; 
+    width: 45%;
+    height: 220px;
+    background-image: url('assets/allahabad_bg.png');
+    background-size: contain;
+    background-position: left bottom;
+    background-repeat: no-repeat;
     pointer-events: none;
     z-index: 1;
-    background-size: contain; 
-    background-position: center bottom;
-    background-repeat: no-repeat;
 }
 
-.groom-allahabad::before {
-    background-image: url('assets/allahabad_bg.png');
-}
-
-.bride-delhi::before {
+/* Injecting Delhi directly into the right side boundary background */
+.seamless-roots-row-pane::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45%;
+    height: 220px;
     background-image: url('assets/delhi_bg.png');
+    background-size: contain;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.root-content {
+.profile-story-node {
+    width: 44%;
+    text-align: center;
     position: relative;
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Normalized profile window structures to balance side-by-side proportions */
-.profile-img-wrapper {
+/* Avatar positioning rulesets balancing structural height lines */
+.character-avatar-frame {
     width: 100%;
-    margin: 0 auto 15px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-bottom: 15px;
 }
 
-.groom-wrap {
+.groom-avatar-position {
     max-width: 200px;
-    height: 240px;
+    height: 250px;
 }
 
-.bride-wrap {
-    max-width: 250px; 
-    height: 240px;
+.bride-avatar-position {
+    max-width: 250px;
+    height: 250px;
 }
 
-.profile-img {
+.character-graphic {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-/* Magnification anchor zooming the bride up cleanly to hide her blank image boundaries */
-.bride-wrap .profile-img {
-    transform: scale(1.65); 
+/* Perfectly counteracts the excessive canvas framing whitespace built into the bride illustration */
+.bride-avatar-position .character-graphic {
+    transform: scale(1.65);
     transform-origin: center center;
 }
 
-.root-box h3 {
+.profile-story-node h3 {
     font-family: var(--font-serif);
-    font-size: 1.85rem;
+    font-size: 2rem;
     color: #2c3b29;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-.bio-text {
-    font-size: 0.95rem;
+.profile-story-node .bio-text {
+    font-size: 1rem;
     line-height: 1.6;
     color: var(--text-muted);
+    max-width: 380px;
 }
 
-/* --- ROW 2: OUR STORY STAGE GALLERY (IIT KANPUR THEME) --- */
-.story-gallery-row {
+/* --- ROW 2: FULL-WIDTH SEAMLESS IIT KANPUR GALLERY ROW --- */
+.seamless-story-row-pane {
     position: relative;
-    border-radius: 24px;
-    border: 1px solid #eae5db;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-    overflow: hidden;
     width: 100%;
+    padding: 80px 60px;
+    
+    /* The IIT Kanpur panoramic canvas sits directly on this row container background */
     background-image: url('assets/iit_kanpur_bg.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-/* Protective color screen filter balanced back to 82% so your line artwork clearly shows */
-.bg-overlay-mask {
-    background: rgba(254, 252, 249, 0.82); 
-    padding: 50px 40px;
+/* Subtle, unified ambient dimming sheet protecting content readability across the wide line art scenery */
+.seamless-story-row-pane::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    box-sizing: border-box;
+    height: 100%;
+    background: rgba(254, 252, 249, 0.85); 
+    z-index: 1;
 }
 
-.gallery-title-box { text-align: center; margin-bottom: 45px; }
-.gallery-title-box h3 { font-family: var(--font-serif); font-size: 2.2rem; color: #2c3b29; font-weight: 600; }
-.gallery-title-box p { font-size: 1.1rem; font-style: italic; color: var(--text-muted); margin-top: 4px; }
+.gallery-title-box, .seamless-gallery-grid {
+    position: relative;
+    z-index: 5; /* Pushes gallery architecture cleanly ahead of the background layer */
+}
 
-.gallery-grid {
+.gallery-title-box {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.gallery-title-box h3 {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    color: #2c3b29;
+    font-weight: 600;
+}
+
+.gallery-title-box p {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.seamless-gallery-grid {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: space-between;
-    gap: 30px;
+    justify-content: center;
+    gap: 40px;
     width: 100%;
 }
 
-.gallery-item {
-    width: 48% !important; 
-    text-align: center;
-}
-
-.gallery-img-wrapper {
-    width: 100%;
-    background-color: #ffffff;
-    border-radius: 16px;
-    padding: 15px;
+/* Clean uniform square layout boxes completely erasing the weird white margins */
+.clean-gallery-item {
+    width: 340px;
+    height: 340px;
+    overflow: hidden;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #e8e2d5;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-    box-sizing: border-box;
 }
 
-.gallery-img {
+/* Enforces consistent aspect ratio masking over both horizontal and vertical photo dimensions */
+.story-photo-fluid {
     width: 100%;
-    height: auto;
-    max-height: 380px;
-    object-fit: contain;
-    border-radius: 8px;
-    display: block;
+    height: 100%;
+    object-fit: contain; /* Retains clean transparent character lines without stretching portraits */
 }
 
 
@@ -462,21 +490,31 @@ body {
    MOBILE MEDIA VIEWPORTS BREAKPOINT BALANCERS
    ========================================================================== */
 @media (max-width: 768px) {
-    .roots-row, .gallery-grid {
+    .seamless-roots-row-pane {
         flex-direction: column !important;
-        gap: 25px;
+        align-items: center;
+        gap: 60px;
+        padding: 40px 24px 200px 24px;
     }
-    .root-box, .gallery-item {
-        width: 100% !important;
+    
+    .seamless-roots-row-pane::before, .seamless-roots-row-pane::after {
+        width: 50%;
+        height: 160px;
     }
-    .root-box {
-        padding-bottom: 155px; 
+    
+    .profile-story-node {
+        width: 100%;
     }
-    .bg-overlay-mask {
-        padding: 30px 20px;
+
+    .seamless-gallery-grid {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 30px;
     }
-    .bride-wrap {
-        max-width: 220px;
+    
+    .clean-gallery-item {
+        width: 290px;
+        height: 290px;
     }
 
     .timeline-stem-line {
