@@ -123,7 +123,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* --- CROSS-FADE ANIMATION CONFIGURATIONS --- */
+/* --- SYSTEM UTILITIES & ANIMATION CONFIGS --- */
 .hidden { display: none !important; }
 
 .visual-fade {
@@ -137,7 +137,7 @@ body {
     transform: translateY(0);
 }
 
-/* --- CARD VERTICAL SCROLL STACK --- */
+/* --- SECTIONS CORE WRAPPERS --- */
 .card-section {
     min-height: 100vh;
     width: 100%;
@@ -154,11 +154,9 @@ body {
     text-align: center;
 }
 
-/* Alternating Card Background Themes */
 .white-bg { background-color: var(--card-cream); }
 .mint-bg { background-color: var(--card-mint); }
 
-/* SHARED REPEATED SECTION TYPOGRAPHY */
 .section-title {
     font-family: var(--font-script);
     font-size: 3.8rem;
@@ -177,12 +175,8 @@ body {
     text-align: center;
 }
 
-/* CARD 1: GANESH JI & NAMES */
-.ganesha-icon { 
-    width: 80px; 
-    height: auto; 
-    margin-bottom: 12px; 
-}
+/* CARD 1: MAIN ENTRY NAMES */
+.ganesha-icon { width: 80px; height: auto; margin-bottom: 12px; }
 .mantra { font-size: 0.95rem; letter-spacing: 2px; color: #666; margin-bottom: 35px; }
 .invitation-prose { font-size: 1.15rem; line-height: 1.7; margin-bottom: 40px; color: var(--text-muted); }
 
@@ -196,7 +190,7 @@ body {
 .parentage { font-size: 1rem; line-height: 1.6; color: #555; margin: 12px 0 28px 0; font-weight: 500; }
 .with-separator { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; margin-bottom: 28px; color: #444; }
 
-/* CARD 2: COUNTDOWN */
+/* CARD 2: COUNTDOWN TIMER BOXES */
 .save-the-date-box { border: 1px solid #d4c5b3; padding: 30px 20px; border-radius: 16px; margin-bottom: 35px; background-color: rgba(255,255,255,0.4); }
 .std-title { font-size: 0.9rem; letter-spacing: 3px; color: #777; }
 .std-date { font-family: var(--font-script); font-size: 3.6rem; color: var(--wedding-pink); font-weight: 400; margin-top: 5px; }
@@ -206,18 +200,140 @@ body {
 .time-box span { font-size: 2rem; font-weight: 600; color: var(--wedding-pink); display: block; line-height: 1.1; }
 .time-box p { font-size: 0.7rem; letter-spacing: 1px; color: #777; margin-top: 5px; font-weight: 600; }
 
-/* CARD 3: STORY BOXES */
-.story-container { display: flex; flex-direction: column; gap: 25px; margin-top: 10px; }
-.story-box { background: white; padding: 30px 20px; border-radius: 16px; border: 1px solid #eae5db; box-shadow: 0 4px 15px rgba(0,0,0,0.01); }
-.doodle-placeholder { font-size: 2.2rem; margin-bottom: 10px; }
-.story-box h3 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; color: #3d4a3b; }
-.story-box p { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
+
+/* ==========================================================================
+   CARD 3: NEW JOURNEY & STORY GEOGRAPHIC ENGINE (Row-Based Layout)
+   ========================================================================== */
+.wide-story-body {
+    max-width: 940px !important;
+    margin: 0 auto;
+}
+
+/* --- ROW 1: BRIDE & GROOM ROOTS --- */
+.roots-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.root-box {
+    position: relative;
+    width: 48%;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid #eae5db;
+    overflow: hidden;
+    text-align: center;
+    z-index: 5;
+}
+
+/* Subtle background scenery overlays streaming natively into the roots frames */
+.root-box::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 130px;
+    opacity: 0.12; 
+    pointer-events: none;
+    z-index: 1;
+    background-size: cover;
+    background-position: center bottom;
+    mix-blend-mode: multiply;
+}
+
+/* Groom - Allahabad Live Backdrop Stream (Historic riverside lines) */
+.groom-allahabad::before {
+    background-image: url('https://images.unsplash.com/photo-1600100397608-f010e42ec9cb?q=80&w=600&auto=format&fit=crop');
+}
+
+/* Bride - Delhi Live Backdrop Stream (Red Fort monument silhouette lines) */
+.bride-delhi::before {
+    background-image: url('https://images.unsplash.com/photo-1585123334904-845d60e97b29?q=80&w=600&auto=format&fit=crop');
+}
+
+.root-content {
+    position: relative;
+    z-index: 5; /* Forces presentation text to stay high contrast over backgrounds */
+}
+
+.profile-img-wrapper {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 20px auto;
+    background-color: #fcfbfa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #edf2eb;
+}
+
+.profile-img { width: 100%; height: 100%; object-fit: contain; }
+.root-box h3 { font-family: var(--font-serif); font-size: 1.8rem; color: #2c3b29; font-weight: 600; }
+.hometown-tag { font-size: 1rem; font-style: italic; color: var(--wedding-pink); font-weight: 600; margin: 2px 0 15px 0; }
+.bio-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
+
+/* --- ROW 2: OUR STORY GALLERY PANEL --- */
+.story-gallery-row {
+    position: relative;
+    border-radius: 24px;
+    border: 1px solid #eae5db;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    
+    /* IIT Kanpur Academic Campus Structure - Textural brick artwork theme background */
+    background-image: url('https://images.unsplash.com/photo-1590069261209-f8e9b8642343?q=80&w=1000&auto=format&fit=crop'); 
+    background-size: cover;
+    background-position: center center;
+}
+
+/* Safety color mask tint to ensure reading elements are fully isolated from campus backing textures */
+.bg-overlay-mask {
+    background: rgba(255, 255, 255, 0.93); 
+    padding: 40px 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-title-box { text-align: center; margin-bottom: 35px; }
+.gallery-title-box h3 { font-family: var(--font-serif); font-size: 2rem; color: #2c3b29; font-weight: 600; }
+.gallery-title-box p { font-size: 1.05rem; font-style: italic; color: var(--text-muted); margin-top: 4px; }
+
+.gallery-grid { display: flex; justify-content: space-between; gap: 25px; }
+.gallery-item { width: 49%; text-align: center; }
+
+.gallery-img-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e8e2d5;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
+    border-radius: 8px;
+    filter: drop-shadow(0px 6px 15px rgba(0,0,0,0.04));
+}
+
+.gallery-caption { font-size: 0.95rem; line-height: 1.5; color: var(--text-muted); margin-top: 14px; padding: 0 10px; }
 
 
-/* --- CARD 4: TIMELINE ENGINE (Replicates original side-by-side design) --- */
+/* ==========================================================================
+   CARD 4: VISUAL TIMELINE SYSTEM (Replicates image_a71e61.jpg Layout)
+   ========================================================================== */
 .schedule-timeline-section {
     background-color: #e3ebe0;
-    /* Faint blueprint grid background mimicking reference art direction */
     background-image: linear-gradient(rgba(175, 195, 170, 0.15) 1px, transparent 1px), 
                       linear-gradient(90deg, rgba(175, 195, 170, 0.15) 1px, transparent 1px));
     background-size: 24px 24px;
@@ -228,23 +344,10 @@ body {
     align-items: center;
 }
 
-.timeline-body {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+.timeline-body { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.visual-timeline-container { position: relative; width: 100%; margin-top: 60px; display: flex; flex-direction: column; gap: 20px; }
 
-.visual-timeline-container {
-    position: relative;
-    width: 100%;
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Central vertical track line placement */
+/* Central timeline guiding backbone path track */
 .timeline-stem-line {
     position: absolute;
     width: 2px;
@@ -256,7 +359,6 @@ body {
     z-index: 1;
 }
 
-/* Master row settings layout balance wrapper */
 .timeline-row {
     display: flex;
     align-items: center;
@@ -267,23 +369,8 @@ body {
     min-height: 250px;
 }
 
-/* Content columns dimensions constraints */
-.timeline-col-media, 
-.timeline-col-text {
-    width: 42%;
-    flex-shrink: 0;
-    flex-grow: 0;
-}
-
-/* Center node badges tracking gap spacing */
-.timeline-col-node {
-    width: 16%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    flex-grow: 0;
-}
+.timeline-col-media, .timeline-col-text { width: 42%; flex-shrink: 0; flex-grow: 0; }
+.timeline-col-node { width: 16%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; flex-grow: 0; }
 
 .time-pill-badge {
     background-color: #ffffff;
@@ -297,57 +384,17 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.timeline-text-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+.timeline-text-content { display: flex; flex-direction: column; justify-content: center; }
+.timeline-text-content h3 { font-family: var(--font-serif); font-size: 1.75rem; color: #2c3b29; font-weight: 600; margin-bottom: 6px; line-height: 1.2; }
+.timeline-text-content .event-tagline { font-size: 1.05rem; font-style: italic; color: var(--wedding-pink); font-weight: 500; }
 
-.timeline-text-content h3 {
-    font-family: var(--font-serif);
-    font-size: 1.75rem;
-    color: #2c3b29;
-    font-weight: 600;
-    margin-bottom: 6px;
-    line-height: 1.2;
-}
+.align-left { text-align: left; padding-left: 20px; }
+.align-right { text-align: right; padding-right: 20px; }
 
-.timeline-text-content .event-tagline {
-    font-size: 1.05rem;
-    font-style: italic;
-    color: var(--wedding-pink);
-    font-weight: 500;
-}
+.timeline-img-wrapper { width: 100%; display: flex; align-items: center; }
+.row-left-img .timeline-img-wrapper { justify-content: flex-end; padding-right: 20px; }
+.row-right-img .timeline-img-wrapper { justify-content: flex-start; padding-left: 20px; }
 
-.align-left { 
-    text-align: left; 
-    padding-left: 20px; 
-}
-
-.align-right { 
-    text-align: right; 
-    padding-right: 20px; 
-}
-
-.timeline-img-wrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-/* Forces left-side assets to naturally sit near tracking border line */
-.row-left-img .timeline-img-wrapper {
-    justify-content: flex-end;
-    padding-right: 20px;
-}
-
-/* Forces right-side assets to naturally sit near tracking border line */
-.row-right-img .timeline-img-wrapper {
-    justify-content: flex-start;
-    padding-left: 20px;
-}
-
-/* Safe graphics constraint controls */
 .timeline-graphic {
     width: 100%;
     max-width: 320px; 
@@ -357,69 +404,50 @@ body {
 }
 
 
-/* --- CARD 5: STATIONARY MAP SNAPSHOT DESIGN --- */
+/* --- CARD 5: VENUE & INTERACTIVE MAP MAPS --- */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
 .venue-address { font-size: 1.2rem; color: #444; margin: 12px auto 30px auto; font-weight: 500; }
 
 .interactive-map-box { 
-    width: 100%; 
-    max-width: 440px; 
-    height: 280px; 
-    margin: 0 auto 30px auto; 
-    border-radius: 20px; 
-    overflow: hidden; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); 
-    border: 1px solid #e6dfd5; 
-    position: relative;
-    z-index: 10;
+    width: 100%; max-width: 440px; height: 280px; margin: 0 auto 30px auto; border-radius: 20px; overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); border: 1px solid #e6dfd5; position: relative; z-index: 10;
 }
-
-.interactive-map-box img.map-img-card {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    background-color: #e5e3df; 
-    display: block;
-}
+.interactive-map-box img.map-img-card { width: 100%; height: 100%; object-fit: contain; background-color: #e5e3df; display: block; }
 
 .directions-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #dca134;
-    color: white;
-    text-decoration: none;
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: 0 5px 18px rgba(220, 161, 52, 0.3);
-    transition: transform 0.2s ease;
+    display: inline-flex; align-items: center; gap: 8px; background: #dca134; color: white; text-decoration: none; 
+    padding: 14px 32px; border-radius: 30px; font-size: 1rem; font-weight: 600; box-shadow: 0 5px 18px rgba(220, 161, 52, 0.3); transition: transform 0.2s ease;
 }
 .directions-btn:hover { transform: scale(1.02); }
 
-/* CARD 6: COMPACT FINAL BANNER */
-.compact-brown-banner {
-    background-color: #4a3b34;
-    color: #f7f1ed;
-    text-align: center;
-    padding: 35px 20px; 
-    width: 100%;
-}
+/* FOOTER BANNER CLOSING ELEMENT */
+.compact-brown-banner { background-color: #4a3b34; color: #f7f1ed; text-align: center; padding: 35px 20px; width: 100%; }
 .closing-love { letter-spacing: 4px; font-size: 0.85rem; opacity: 0.75; font-weight: 600; }
 .closing-couple { font-family: var(--font-script); font-size: 3.2rem; font-weight: 400; margin: 8px 0; color: #ecdcd3; }
 .closing-date { font-size: 1.1rem; letter-spacing: 2px; font-weight: 400; opacity: 0.9; }
 
 
 /* ==========================================================================
-   MOBILE VIEWPORT RESPONSIVE RULES OVERRIDES
+   MOBILE & SMARTPHONE STRUCTURAL ADAPTIVE CONTROLS
    ========================================================================== */
 @media (max-width: 768px) {
+    /* Story Journey Row Collapse rules */
+    .roots-row, .gallery-grid {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .root-box, .gallery-item {
+        width: 100%;
+    }
+    .bg-overlay-mask {
+        padding: 30px 15px;
+    }
+
+    /* Timeline Horizontal to Vertical Track shift overrides */
     .timeline-stem-line {
         left: 45px;
         transform: none;
     }
-    
     .timeline-row {
         flex-direction: column !important;
         align-items: flex-start;
@@ -428,18 +456,13 @@ body {
         margin-bottom: 45px;
         padding-left: 90px;
     }
-    
     .timeline-row.row-right-img {
         flex-direction: column !important;
     }
-    
-    .timeline-col-media, 
-    .timeline-col-text, 
-    .timeline-col-node {
+    .timeline-col-media, .timeline-col-text, .timeline-col-node {
         width: 100% !important;
         text-align: left !important;
     }
-    
     .timeline-col-node {
         position: absolute;
         left: 15px;
@@ -447,20 +470,9 @@ body {
         width: auto !important;
         padding: 0;
     }
-
-    .timeline-text-content {
-        padding: 0 !important;
-    }
-    
-    .timeline-img-wrapper {
-        padding: 0 !important;
-        justify-content: flex-start !important;
-    }
-    
-    .timeline-graphic {
-        max-width: 260px;
-        margin-top: 10px;
-    }
+    .timeline-text-content { padding: 0 !important; }
+    .timeline-img-wrapper { padding: 0 !important; justify-content: flex-start !important; }
+    .timeline-graphic { max-width: 260px; margin-top: 10px; }
 }
 
 @media (max-width: 500px) {
@@ -471,8 +483,5 @@ body {
     #timer { gap: 8px; }
     .time-box { width: 74px; padding: 14px 2px; }
     .time-box span { font-size: 1.6rem; }
-    .interactive-map-box {
-        height: 200px; 
-        max-width: 90vw;
-    }
+    .interactive-map-box { height: 200px; max-width: 90vw; }
 }
