@@ -1,4 +1,198 @@
 /* ==========================================================================
+   THE CORE REVOLUTION CSS PLATFORM ENGINE DESIGN HOOKS
+   ========================================================================== */
+:root {
+    --bg-mint: #cbd9c7;
+    --card-cream: #faf8f5;
+    --card-mint: #e3ebe0;
+    --text-dark: #2c2c2c;
+    --text-muted: #555555;
+    --wedding-pink: #d15b76;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-script: 'Great Vibes', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-mint);
+    color: var(--text-dark);
+    font-family: var(--font-serif);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* --- ANIMATED STEMLESS FLOWER FLURRY --- */
+.global-flower-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 150;
+}
+
+.petal {
+    position: absolute;
+    top: -40px;
+    font-size: 22px;
+    user-select: none;
+    animation: fallAndRotation 8s linear infinite;
+}
+
+.p1 { left: 7%; animation-delay: 0s; animation-duration: 6.5s; }
+.p2 { left: 23%; animation-delay: 2s; animation-duration: 8s; }
+.p3 { left: 41%; animation-delay: 0.5s; animation-duration: 7s; }
+.p4 { left: 58%; animation-delay: 3.5s; animation-duration: 9s; }
+.p5 { left: 72%; animation-delay: 1.2s; animation-duration: 6.8s; }
+.p6 { left: 87%; animation-delay: 2.7s; animation-duration: 7.8s; }
+.p7 { left: 49%; animation-delay: 4.8s; animation-duration: 8.5s; }
+.p8 { left: 94%; animation-delay: 0.9s; animation-duration: 6.2s; }
+
+@keyframes fallAndRotation {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.85; }
+    90% { opacity: 0.85; }
+    100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- OVERLAY ENVELOPE SHIELD SHEET --- */
+#cover-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-mint);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
+}
+
+.envelope-wrapper {
+    cursor: pointer;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.envelope-wrapper:hover {
+    transform: scale(1.03);
+}
+
+.main-closed-envelope {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.12));
+}
+
+.welcome-text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.invite-headline {
+    font-family: var(--font-script);
+    font-size: 4.5rem;
+    color: #4b5948;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.invite-subline {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: #5d6d5a;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+
+.hidden { display: none !important; }
+
+/* --- SECTIONS CORE FRAMEWORK --- */
+.card-section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 24px;
+    position: relative;
+}
+
+.card-body {
+    width: 100%;
+    max-width: 540px;
+    text-align: center;
+}
+
+.white-bg { background-color: var(--card-cream); }
+.mint-bg { background-color: var(--card-mint); }
+
+.section-title {
+    font-family: var(--font-script);
+    font-size: 3.8rem;
+    color: var(--wedding-pink);
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 5px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* CARD 1: GANESHA & ENTRY NAMES */
+.ganesha-icon { width: 80px; height: auto; margin-bottom: 12px; }
+.mantra { font-size: 0.95rem; letter-spacing: 2px; color: #666; margin-bottom: 35px; }
+.invitation-prose { font-size: 1.15rem; line-height: 1.7; margin-bottom: 40px; color: var(--text-muted); }
+
+.groom-name, .bride-name {
+    font-family: var(--font-script);
+    font-size: 4.6rem;
+    color: var(--wedding-pink);
+    font-weight: 400;
+    line-height: 1;
+}
+.parentage { font-size: 1rem; line-height: 1.6; color: #555; margin: 12px 0 28px 0; font-weight: 500; }
+.with-separator { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; margin-bottom: 28px; color: #444; }
+
+/* CARD 2: TICKING CHRONO COUNTDOWN */
+.save-the-date-box { border: 1px solid #d4c5b3; padding: 30px 20px; border-radius: 16px; margin-bottom: 35px; background-color: rgba(255,255,255,0.4); }
+.std-title { font-size: 0.9rem; letter-spacing: 3px; color: #777; }
+.std-date { font-family: var(--font-script); font-size: 3.6rem; color: var(--wedding-pink); font-weight: 400; margin-top: 5px; }
+
+#timer { display: flex; justify-content: center; gap: 14px; }
+.time-box { background: white; border: 1px solid #e6dfd5; border-radius: 14px; width: 90px; padding: 18px 5px; box-shadow: 0 6px 15px rgba(0,0,0,0.02); }
+.time-box span { font-size: 2rem; font-weight: 600; color: var(--wedding-pink); display: block; line-height: 1.1; }
+.time-box p { font-size: 0.7rem; letter-spacing: 1px; color: #777; margin-top: 5px; font-weight: 600; }
+
+
+/* ==========================================================================
    CARD 3: TRULY UNIFIED GEOGRAPHIC & CAMPUS PANORAMA LAYOUT
    ========================================================================== */
 .story-section-global-container {
@@ -215,4 +409,175 @@
         width: 280px;
         height: 280px;
     }
+}
+
+
+/* ==========================================================================
+   CARD 4: TIMELINE RENDERING TRACK SYSTEM
+   ========================================================================== */
+.schedule-timeline-section {
+    background-color: #e3ebe0;
+    background-image: linear-gradient(rgba(175, 195, 170, 0.15) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(175, 195, 170, 0.15) 1px, transparent 1px));
+    background-size: 24px 24px;
+    padding: 80px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline-body { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.visual-timeline-container { position: relative; width: 100%; margin-top: 60px; display: flex; flex-direction: column; gap: 20px; }
+
+.timeline-stem-line {
+    position: absolute;
+    width: 2px;
+    background-color: #a3b59e;
+    top: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    min-height: 250px;
+}
+
+.timeline-col-media, .timeline-col-text { width: 42%; flex-shrink: 0; flex-grow: 0; }
+.timeline-col-node { width: 16%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; flex-grow: 0; }
+
+.time-pill-badge {
+    background-color: #ffffff;
+    color: #4a5547;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 30px;
+    white-space: nowrap;
+    border: 1px solid #b8c7b4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-text-content { display: flex; flex-direction: column; justify-content: center; }
+.timeline-text-content h3 { font-family: var(--font-serif); font-size: 1.75rem; color: #2c3b29; font-weight: 600; margin-bottom: 6px; line-height: 1.2; }
+.timeline-text-content .event-tagline { font-size: 1.05rem; font-style: italic; color: var(--wedding-pink); font-weight: 500; }
+
+.align-left { text-align: left; padding-left: 20px; }
+.align-right { text-align: right; padding-right: 20px; }
+
+.timeline-img-wrapper { width: 100%; display: flex; align-items: center; }
+.row-left-img .timeline-img-wrapper { justify-content: flex-end; padding-right: 20px; }
+.row-right-img .timeline-img-wrapper { justify-content: flex-start; padding-left: 20px; }
+
+.timeline-graphic {
+    width: 100%;
+    max-width: 320px; 
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.08));
+}
+
+
+/* --- CARD 5: RECEPTACLE INFRASTRUCTURE INTERACTIVE MAP --- */
+.venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
+.venue-address { font-size: 1.2rem; color: #444; margin: 12px auto 30px auto; font-weight: 500; }
+
+.interactive-map-box { 
+    width: 100%; max-width: 440px; height: 280px; margin: 0 auto 30px auto; border-radius: 20px; overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); border: 1px solid #e6dfd5; position: relative; z-index: 10;
+}
+.interactive-map-box img.map-img-card { width: 100%; height: 100%; object-fit: contain; background-color: #e5e3df; display: block; }
+
+.directions-btn {
+    display: inline-flex; align-items: center; gap: 8px; background: #dca134; color: white; text-decoration: none; 
+    padding: 14px 32px; border-radius: 30px; font-size: 1rem; font-weight: 600; box-shadow: 0 5px 18px rgba(220, 161, 52, 0.3); transition: transform 0.2s ease;
+}
+.directions-btn:hover { transform: scale(1.02); }
+
+/* FOOTER CAP ENTRY BLOCK */
+.compact-brown-banner { background-color: #4a3b34; color: #f7f1ed; text-align: center; padding: 35px 20px; width: 100%; }
+.closing-love { letter-spacing: 4px; font-size: 0.85rem; opacity: 0.75; font-weight: 600; }
+.closing-couple { font-family: var(--font-script); font-size: 3.2rem; font-weight: 400; margin: 8px 0; color: #ecdcd3; }
+.closing-date { font-size: 1.1rem; letter-spacing: 2px; font-weight: 400; opacity: 0.9; }
+
+
+/* ==========================================================================
+   MOBILE MEDIA VIEWPORTS BREAKPOINT BALANCERS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .seamless-roots-row-pane {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 60px;
+        padding: 40px 24px 200px 24px;
+    }
+    
+    .seamless-roots-row-pane::before, .seamless-roots-row-pane::after {
+        width: 50%;
+        height: 160px;
+    }
+    
+    .profile-story-node {
+        width: 100%;
+    }
+
+    .seamless-gallery-grid {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .clean-gallery-item {
+        width: 290px;
+        height: 290px;
+    }
+
+    .timeline-stem-line {
+        left: 45px;
+        transform: none;
+    }
+    .timeline-row {
+        flex-direction: column !important;
+        align-items: flex-start;
+        gap: 12px;
+        min-height: auto;
+        margin-bottom: 45px;
+        padding-left: 90px;
+    }
+    .timeline-row.row-right-img {
+        flex-direction: column !important;
+    }
+    .timeline-col-media, .timeline-col-text, .timeline-col-node {
+        width: 100% !important;
+        text-align: left !important;
+    }
+    .timeline-col-node {
+        position: absolute;
+        left: 15px;
+        top: 0;
+        width: auto !important;
+        padding: 0;
+    }
+    .timeline-text-content { padding: 0 !important; }
+    .timeline-img-wrapper { padding: 0 !important; justify-content: flex-start !important; }
+    .timeline-graphic { max-width: 260px; margin-top: 10px; }
+}
+
+@media (max-width: 500px) {
+    .main-closed-envelope { width: 92vw; }
+    .invite-headline { font-size: 3.5rem; }
+    .groom-name, .bride-name { font-size: 3.8rem; }
+    .section-title { font-size: 3.2rem; }
+    #timer { gap: 8px; }
+    .time-box { width: 74px; padding: 14px 2px; }
+    .time-box span { font-size: 1.6rem; }
+    .interactive-map-box { height: 200px; max-width: 90vw; }
 }
