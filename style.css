@@ -193,7 +193,7 @@ body {
 
 
 /* ==========================================================================
-   CARD 3: THE COMPACT STORY ENGINE WITH INTEGRATED ASSETS
+   CARD 3: OPTIMIZED LAYOUT MATRIX (NO TEXT CLUTTER & PERFECT IMAGE BALANCE)
    ========================================================================== */
 .card-section .wide-story-body {
     max-width: 960px !important; 
@@ -217,7 +217,7 @@ body {
     width: 48% !important; 
     background: #ffffff;
     border-radius: 24px;
-    padding: 35px 30px 145px 30px; /* Secure clearing gap protecting illustrations from clashing with profiles */
+    padding: 40px 30px 150px 30px; /* Generous space at bottom prevents illustration text overlap */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
     border: 1px solid #eae5db;
     overflow: hidden;
@@ -225,7 +225,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Drawing custom watercolor artwork boundaries underneath profile content */
+/* Landscape background masking - switches to contain to fix cropping issues */
 .root-box::before {
     content: '';
     position: absolute;
@@ -235,8 +235,9 @@ body {
     height: 140px; 
     pointer-events: none;
     z-index: 1;
-    background-size: cover;
+    background-size: contain; 
     background-position: center bottom;
+    background-repeat: no-repeat;
 }
 
 .groom-allahabad::before {
@@ -252,34 +253,44 @@ body {
     z-index: 5;
 }
 
+/* Normalized profile window structures to balance side-by-side proportions */
 .profile-img-wrapper {
     width: 100%;
-    max-width: 200px;
-    margin: 0 auto 12px auto;
+    margin: 0 auto 15px auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+.groom-wrap {
+    max-width: 200px;
+    height: 240px;
+}
+
+.bride-wrap {
+    max-width: 250px; 
+    height: 240px;
 }
 
 .profile-img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: contain;
+}
+
+/* Magnification anchor zooming the bride up cleanly to hide her blank image boundaries */
+.bride-wrap .profile-img {
+    transform: scale(1.65); 
+    transform-origin: center center;
 }
 
 .root-box h3 {
     font-family: var(--font-serif);
-    font-size: 1.8rem;
+    font-size: 1.85rem;
     color: #2c3b29;
     font-weight: 600;
-}
-
-.hometown-tag {
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--wedding-pink);
-    font-weight: 600;
-    margin: 4px 0 12px 0;
+    margin-bottom: 10px;
 }
 
 .bio-text {
@@ -288,7 +299,7 @@ body {
     color: var(--text-muted);
 }
 
-/* --- ROW 2: OUR STORY STAGE GALLERY --- */
+/* --- ROW 2: OUR STORY STAGE GALLERY (IIT KANPUR THEME) --- */
 .story-gallery-row {
     position: relative;
     border-radius: 24px;
@@ -298,17 +309,19 @@ body {
     width: 100%;
     background-image: url('assets/iit_kanpur_bg.png');
     background-size: cover;
-    background-position: center bottom;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
+/* Protective color screen filter balanced back to 82% so your line artwork clearly shows */
 .bg-overlay-mask {
-    background: rgba(254, 252, 249, 0.93); 
+    background: rgba(254, 252, 249, 0.82); 
     padding: 50px 40px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.gallery-title-box { text-align: center; margin-bottom: 40px; }
+.gallery-title-box { text-align: center; margin-bottom: 45px; }
 .gallery-title-box h3 { font-family: var(--font-serif); font-size: 2.2rem; color: #2c3b29; font-weight: 600; }
 .gallery-title-box p { font-size: 1.1rem; font-style: italic; color: var(--text-muted); margin-top: 4px; }
 
@@ -329,11 +342,12 @@ body {
     width: 100%;
     background-color: #ffffff;
     border-radius: 16px;
-    padding: 12px;
+    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #e8e2d5;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     box-sizing: border-box;
 }
 
@@ -344,14 +358,6 @@ body {
     object-fit: contain;
     border-radius: 8px;
     display: block;
-}
-
-.gallery-caption {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--text-muted);
-    margin-top: 16px;
-    padding: 0 10px;
 }
 
 
@@ -456,7 +462,6 @@ body {
    MOBILE MEDIA VIEWPORTS BREAKPOINT BALANCERS
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Collapsing Row Blocks safely down into stacked single file lists */
     .roots-row, .gallery-grid {
         flex-direction: column !important;
         gap: 25px;
@@ -470,8 +475,10 @@ body {
     .bg-overlay-mask {
         padding: 30px 20px;
     }
+    .bride-wrap {
+        max-width: 220px;
+    }
 
-    /* Rewriting tracking indicators positions for linear vertical feeds */
     .timeline-stem-line {
         left: 45px;
         transform: none;
