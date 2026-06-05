@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GLOBAL VARIABLES & MASTER STYLES
+   THE CORE REVOLUTION CSS PLATFORM ENGINE DESIGN HOOKS
    ========================================================================== */
 :root {
     --bg-mint: #cbd9c7;
@@ -26,7 +26,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* --- RAINDROP STEMLESS FLOWER HEADS --- */
+/* --- ANIMATED STEMLESS FLOWER FLURRY --- */
 .global-flower-rain {
     position: fixed;
     top: 0;
@@ -61,7 +61,7 @@ body {
     100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
 }
 
-/* --- LANDING COVER SHEET --- */
+/* --- OVERLAY ENVELOPE SHIELD SHEET --- */
 #cover-page {
     height: 100vh;
     width: 100%;
@@ -128,7 +128,7 @@ body {
 
 .hidden { display: none !important; }
 
-/* --- SECTIONS CORE WRAPPERS --- */
+/* --- SECTIONS CORE FRAMEWORK --- */
 .card-section {
     min-height: 100vh;
     width: 100%;
@@ -166,7 +166,7 @@ body {
     text-align: center;
 }
 
-/* CARD 1: MAIN ENTRY NAMES */
+/* CARD 1: GANESHA & ENTRY NAMES */
 .ganesha-icon { width: 80px; height: auto; margin-bottom: 12px; }
 .mantra { font-size: 0.95rem; letter-spacing: 2px; color: #666; margin-bottom: 35px; }
 .invitation-prose { font-size: 1.15rem; line-height: 1.7; margin-bottom: 40px; color: var(--text-muted); }
@@ -181,7 +181,7 @@ body {
 .parentage { font-size: 1rem; line-height: 1.6; color: #555; margin: 12px 0 28px 0; font-weight: 500; }
 .with-separator { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; margin-bottom: 28px; color: #444; }
 
-/* CARD 2: COUNTDOWN TIMER BOXES */
+/* CARD 2: TICKING CHRONO COUNTDOWN */
 .save-the-date-box { border: 1px solid #d4c5b3; padding: 30px 20px; border-radius: 16px; margin-bottom: 35px; background-color: rgba(255,255,255,0.4); }
 .std-title { font-size: 0.9rem; letter-spacing: 3px; color: #777; }
 .std-date { font-family: var(--font-script); font-size: 3.6rem; color: var(--wedding-pink); font-weight: 400; margin-top: 5px; }
@@ -193,7 +193,7 @@ body {
 
 
 /* ==========================================================================
-   CARD 3: NEW TWO-ROW STORY LAYOUT ENGINE (FIXED STACKING)
+   CARD 3: THE COMPACT STORY ENGINE WITH INTEGRATED ASSETS
    ========================================================================== */
 .card-section .wide-story-body {
     max-width: 960px !important; 
@@ -202,13 +202,13 @@ body {
     display: block !important; 
 }
 
-/* --- ROW 1: BRIDE & GROOM ROOTS (SIDE-BY-SIDE FORCE) --- */
+/* --- ROW 1: THE GEOGRAPHIC HOMETOWNS --- */
 .roots-row {
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between;
     gap: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     width: 100%;
 }
 
@@ -217,7 +217,7 @@ body {
     width: 48% !important; 
     background: #ffffff;
     border-radius: 24px;
-    padding: 40px 30px;
+    padding: 35px 30px 145px 30px; /* Secure clearing gap protecting illustrations from clashing with profiles */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
     border: 1px solid #eae5db;
     overflow: hidden;
@@ -225,36 +225,26 @@ body {
     box-sizing: border-box;
 }
 
-/* PURE CSS BACKGROUND ARTWORK ENGINES (Replaces missing images) */
+/* Drawing custom watercolor artwork boundaries underneath profile content */
 .root-box::before {
     content: '';
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
-    height: 110px;
-    opacity: 0.25;
+    height: 140px; 
     pointer-events: none;
     z-index: 1;
+    background-size: cover;
+    background-position: center bottom;
 }
 
-/* Allahabad Left Side: Abstract Geometric Waves & Sunrays representing the Triveni Sangam */
 .groom-allahabad::before {
-    left: 0;
-    background: 
-        radial-gradient(circle at 50% 170%, transparent 60px, rgba(163, 181, 158, 0.3) 62px, transparent 65px),
-        linear-gradient(0deg, rgba(227, 235, 224, 0.5) 0%, transparent 100%);
-    background-size: 40px 110px, 100% 100%;
+    background-image: url('assets/allahabad_bg.png');
 }
 
-/* Delhi Right Side: Abstract Minimal Sandstone Fortress Blocks representing the Red Fort architecture */
 .bride-delhi::before {
-    right: 0;
-    background: 
-        linear-gradient(90deg, transparent 40%, rgba(209, 91, 118, 0.1) 40%, rgba(209, 91, 118, 0.1) 60%, transparent 60%),
-        linear-gradient(0deg, rgba(245, 225, 229, 0.6) 0%, transparent 100%);
-    background-size: 60px 80px, 100% 100%;
-    background-repeat: repeat-x;
-    background-position: bottom center;
+    background-image: url('assets/delhi_bg.png');
 }
 
 .root-content {
@@ -264,8 +254,8 @@ body {
 
 .profile-img-wrapper {
     width: 100%;
-    max-width: 280px;
-    margin: 0 auto 10px auto;
+    max-width: 200px;
+    margin: 0 auto 12px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -289,7 +279,7 @@ body {
     font-style: italic;
     color: var(--wedding-pink);
     font-weight: 600;
-    margin: 4px 0 15px 0;
+    margin: 4px 0 12px 0;
 }
 
 .bio-text {
@@ -298,7 +288,7 @@ body {
     color: var(--text-muted);
 }
 
-/* --- ROW 2: OUR STORY GALLERY (PURE CSS IIT KANPUR ACADEMIC BRICK PATTERN) --- */
+/* --- ROW 2: OUR STORY STAGE GALLERY --- */
 .story-gallery-row {
     position: relative;
     border-radius: 24px;
@@ -306,44 +296,21 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
     overflow: hidden;
     width: 100%;
-    
-    /* Generates a clean, classic academic red-brick pattern layout using zero image files */
-    background-color: #b35649;
-    background-image: 
-        linear-gradient(90deg, rgba(255,255,255,0.07) 2px, transparent 2px),
-        linear-gradient(rgba(255,255,255,0.07) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px),
-        linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px);
-    background-size: 40px 20px, 40px 20px, 40px 20px, 40px 20px;
-    background-position: 0 0, 0 0, 1px 1px, 1px 1px;
+    background-image: url('assets/iit_kanpur_bg.png');
+    background-size: cover;
+    background-position: center bottom;
 }
 
-/* Warm card overlay tint protecting code element visibility over the brick background patterns */
 .bg-overlay-mask {
-    background: rgba(254, 252, 249, 0.95); 
+    background: rgba(254, 252, 249, 0.93); 
     padding: 50px 40px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.gallery-title-box {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.gallery-title-box h3 {
-    font-family: var(--font-serif);
-    font-size: 2.2rem;
-    color: #2c3b29;
-    font-weight: 600;
-}
-
-.gallery-title-box p {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--text-muted);
-    margin-top: 4px;
-}
+.gallery-title-box { text-align: center; margin-bottom: 40px; }
+.gallery-title-box h3 { font-family: var(--font-serif); font-size: 2.2rem; color: #2c3b29; font-weight: 600; }
+.gallery-title-box p { font-size: 1.1rem; font-style: italic; color: var(--text-muted); margin-top: 4px; }
 
 .gallery-grid {
     display: flex !important;
@@ -373,7 +340,7 @@ body {
 .gallery-img {
     width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 380px;
     object-fit: contain;
     border-radius: 8px;
     display: block;
@@ -389,7 +356,7 @@ body {
 
 
 /* ==========================================================================
-   CARD 4: VISUAL TIMELINE SYSTEM
+   CARD 4: TIMELINE RENDERING TRACK SYSTEM
    ========================================================================== */
 .schedule-timeline-section {
     background-color: #e3ebe0;
@@ -462,7 +429,7 @@ body {
 }
 
 
-/* --- CARD 5: VENUE & MAP MAPS --- */
+/* --- CARD 5: RECEPTACLE INFRASTRUCTURE INTERACTIVE MAP --- */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
 .venue-address { font-size: 1.2rem; color: #444; margin: 12px auto 30px auto; font-weight: 500; }
 
@@ -478,7 +445,7 @@ body {
 }
 .directions-btn:hover { transform: scale(1.02); }
 
-/* FOOTER BANNER CLOSING ELEMENT */
+/* FOOTER CAP ENTRY BLOCK */
 .compact-brown-banner { background-color: #4a3b34; color: #f7f1ed; text-align: center; padding: 35px 20px; width: 100%; }
 .closing-love { letter-spacing: 4px; font-size: 0.85rem; opacity: 0.75; font-weight: 600; }
 .closing-couple { font-family: var(--font-script); font-size: 3.2rem; font-weight: 400; margin: 8px 0; color: #ecdcd3; }
@@ -486,9 +453,10 @@ body {
 
 
 /* ==========================================================================
-   MOBILE RESPONSIVE ADAPTIVE ENGINES
+   MOBILE MEDIA VIEWPORTS BREAKPOINT BALANCERS
    ========================================================================== */
 @media (max-width: 768px) {
+    /* Collapsing Row Blocks safely down into stacked single file lists */
     .roots-row, .gallery-grid {
         flex-direction: column !important;
         gap: 25px;
@@ -496,10 +464,14 @@ body {
     .root-box, .gallery-item {
         width: 100% !important;
     }
+    .root-box {
+        padding-bottom: 155px; 
+    }
     .bg-overlay-mask {
         padding: 30px 20px;
     }
 
+    /* Rewriting tracking indicators positions for linear vertical feeds */
     .timeline-stem-line {
         left: 45px;
         transform: none;
