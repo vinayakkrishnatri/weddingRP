@@ -21,7 +21,7 @@ function openInvitation() {
         }, 50);
         
         window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 800); // Perfect duration pairing with CSS hide rules
+    }, 800); 
 }
 
 // Click Trigger Activation
