@@ -214,17 +214,18 @@ body {
 .story-box p { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
 
 
-/* --- CARD 4: ADVANCED TIMELINE METHODOLOGY (MATCHING image_a71e61.jpg) --- */
+/* --- CARD 4: TIMELINE ENGINE (Replicates original side-by-side design) --- */
 .schedule-timeline-section {
     background-color: #e3ebe0;
-    /* Clean linear math rules mapping a faint notebook blueprint grid layout */
-    background-image: min(linear-gradient(rgba(175, 195, 170, 0.15) 1px, transparent 1px), 
-                           linear-gradient(90deg, rgba(175, 195, 170, 0.15) 1px, transparent 1px));
+    /* Faint blueprint grid background mimicking reference art direction */
+    background-image: linear-gradient(rgba(175, 195, 170, 0.15) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(175, 195, 170, 0.15) 1px, transparent 1px));
     background-size: 24px 24px;
+    padding: 80px 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 80px 0; /* Expanded width logic container built around core layout */
 }
 
 .timeline-body {
@@ -237,106 +238,124 @@ body {
 .visual-timeline-container {
     position: relative;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Central Floral Vertical Track Guideline */
+/* Central vertical track line placement */
 .timeline-stem-line {
     position: absolute;
     width: 2px;
-    background: linear-gradient(to bottom, #98ab93 0%, #7e9479 50%, #98ab93 100%);
-    top: 10px;
-    bottom: 10px;
+    background-color: #a3b59e;
+    top: 20px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
 }
 
-/* Horizontal Presentation Grid Rows */
+/* Master row settings layout balance wrapper */
 .timeline-row {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    margin-bottom: 40px;
     position: relative;
     z-index: 5;
+    min-height: 250px;
 }
 
-.timeline-row:last-child {
-    margin-bottom: 0;
-}
-
-/* 3-Column Split Allocation Model */
-.timeline-col-media, .timeline-col-text {
-    width: 45%;
-    flex-grow: 0;
+/* Content columns dimensions constraints */
+.timeline-col-media, 
+.timeline-col-text {
+    width: 42%;
     flex-shrink: 0;
+    flex-grow: 0;
 }
 
+/* Center node badges tracking gap spacing */
 .timeline-col-node {
-    width: 10%;
+    width: 16%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 0;
     flex-shrink: 0;
-    position: relative;
+    flex-grow: 0;
 }
 
-/* Clean Pill-Style Time Track Badges */
 .time-pill-badge {
     background-color: #ffffff;
-    color: #444444;
+    color: #4a5547;
     font-size: 0.85rem;
     font-weight: 600;
-    padding: 5px 14px;
-    border-radius: 20px;
+    padding: 6px 16px;
+    border-radius: 30px;
     white-space: nowrap;
-    border: 1px solid #c2cebd;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-    z-index: 10;
+    border: 1px solid #b8c7b4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Text Content Positioning Alignment Handles */
 .timeline-text-content {
-    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .timeline-text-content h3 {
     font-family: var(--font-serif);
-    font-size: 1.6rem;
+    font-size: 1.75rem;
     color: #2c3b29;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    line-height: 1.2;
 }
 
 .timeline-text-content .event-tagline {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-style: italic;
     color: var(--wedding-pink);
     font-weight: 500;
 }
 
-.align-left { text-align: left; padding-left: 30px; }
-.align-right { text-align: right; padding-right: 30px; }
+.align-left { 
+    text-align: left; 
+    padding-left: 20px; 
+}
 
-/* Isolated PNG Image Viewports */
+.align-right { 
+    text-align: right; 
+    padding-right: 20px; 
+}
+
 .timeline-img-wrapper {
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 10px;
 }
 
-.timeline-graphic {
-    max-width: 100%;
-    height: auto;
-    max-height: 240px;
-    object-fit: contain;
-    /* Soft edge mapping drop-shadow directly on asset transparency */
-    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.12));
+/* Forces left-side assets to naturally sit near tracking border line */
+.row-left-img .timeline-img-wrapper {
+    justify-content: flex-end;
+    padding-right: 20px;
 }
+
+/* Forces right-side assets to naturally sit near tracking border line */
+.row-right-img .timeline-img-wrapper {
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+/* Safe graphics constraint controls */
+.timeline-graphic {
+    width: 100%;
+    max-width: 320px; 
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.08));
+}
+
 
 /* --- CARD 5: STATIONARY MAP SNAPSHOT DESIGN --- */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
@@ -392,55 +411,55 @@ body {
 .closing-date { font-size: 1.1rem; letter-spacing: 2px; font-weight: 400; opacity: 0.9; }
 
 
-/* --- MOBILE AND TABLET RESPONSIVE FALLBACK ENGINE --- */
+/* ==========================================================================
+   MOBILE VIEWPORT RESPONSIVE RULES OVERRIDES
+   ========================================================================== */
 @media (max-width: 768px) {
     .timeline-stem-line {
-        left: 35px;
+        left: 45px;
         transform: none;
     }
     
     .timeline-row {
-        flex-direction: column;
+        flex-direction: column !important;
         align-items: flex-start;
-        gap: 15px;
-        margin-bottom: 50px;
+        gap: 12px;
+        min-height: auto;
+        margin-bottom: 45px;
+        padding-left: 90px;
     }
     
-    /* Forces alternating rows to march uniformly down the single column on tiny track viewports */
     .timeline-row.row-right-img {
-        flex-direction: column-reverse;
+        flex-direction: column !important;
     }
     
-    .timeline-col-media, .timeline-col-text, .timeline-col-node {
-        width: 100%;
-        text-align: left;
+    .timeline-col-media, 
+    .timeline-col-text, 
+    .timeline-col-node {
+        width: 100% !important;
+        text-align: left !important;
     }
     
     .timeline-col-node {
-        padding-left: 15px;
-        justify-content: flex-start;
+        position: absolute;
+        left: 15px;
+        top: 0;
+        width: auto !important;
+        padding: 0;
     }
-    
-    .time-pill-badge {
-        font-size: 0.8rem;
-    }
-    
+
     .timeline-text-content {
-        padding-left: 70px;
-        padding-right: 15px;
-    }
-    
-    .align-right {
-        text-align: left;
+        padding: 0 !important;
     }
     
     .timeline-img-wrapper {
-        padding-left: 70px;
-        justify-content: flex-start;
+        padding: 0 !important;
+        justify-content: flex-start !important;
     }
     
     .timeline-graphic {
-        max-height: 180px;
+        max-width: 260px;
+        margin-top: 10px;
     }
 }
 
