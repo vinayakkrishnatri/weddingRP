@@ -165,6 +165,7 @@ body {
     color: var(--wedding-pink);
     font-weight: 400;
     line-height: 1.1;
+    text-align: center;
 }
 
 .section-subtitle {
@@ -173,6 +174,7 @@ body {
     color: var(--text-muted);
     margin-top: 5px;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 /* CARD 1: GANESH JI & NAMES */
@@ -199,7 +201,7 @@ body {
 .std-title { font-size: 0.9rem; letter-spacing: 3px; color: #777; }
 .std-date { font-family: var(--font-script); font-size: 3.6rem; color: var(--wedding-pink); font-weight: 400; margin-top: 5px; }
 
-#timer { display: flex; justify: center; gap: 14px; }
+#timer { display: flex; justify-content: center; gap: 14px; }
 .time-box { background: white; border: 1px solid #e6dfd5; border-radius: 14px; width: 90px; padding: 18px 5px; box-shadow: 0 6px 15px rgba(0,0,0,0.02); }
 .time-box span { font-size: 2rem; font-weight: 600; color: var(--wedding-pink); display: block; line-height: 1.1; }
 .time-box p { font-size: 0.7rem; letter-spacing: 1px; color: #777; margin-top: 5px; font-weight: 600; }
@@ -211,58 +213,132 @@ body {
 .story-box h3 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; color: #3d4a3b; }
 .story-box p { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
 
-/* CARD 4: EVENTS SCENE DESIGN (UPDATED FOR YOUR TRANSPARENT PNGs) */
-.events-container { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 30px; 
-}
 
-.event-card { 
-    background: white; 
-    padding: 30px 24px; 
-    border-radius: 20px; 
-    border: 1px solid #eae5db; 
-    text-align: center; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-}
-
-.event-card h3 { 
-    font-size: 1.4rem; 
-    color: #2c3b29; 
-    margin-bottom: 4px; 
-}
-
-.event-meta { 
-    font-size: 0.95rem; 
-    font-style: italic; 
-    color: var(--wedding-pink); 
-    margin-bottom: 20px; 
-    font-weight: 500; 
-}
-
-/* Perfect container backing asset layout context */
-.image-wrapper {
-    background-color: #fdfcf9; 
-    border-radius: 12px;
-    padding: 15px;
+/* --- CARD 4: ADVANCED TIMELINE METHODOLOGY (MATCHING image_a71e61.jpg) --- */
+.schedule-timeline-section {
+    background-color: #e3ebe0;
+    /* Clean linear math rules mapping a faint notebook blueprint grid layout */
+    background-image: min(linear-gradient(rgba(175, 195, 170, 0.15) 1px, transparent 1px), 
+                           linear-gradient(90deg, rgba(175, 195, 170, 0.15) 1px, transparent 1px));
+    background-size: 24px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    margin-top: 10px;
+    padding: 80px 0; /* Expanded width logic container built around core layout */
 }
 
-.event-illustration {
+.timeline-body {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.visual-timeline-container {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* Central Floral Vertical Track Guideline */
+.timeline-stem-line {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, #98ab93 0%, #7e9479 50%, #98ab93 100%);
+    top: 10px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Horizontal Presentation Grid Rows */
+.timeline-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 5;
+}
+
+.timeline-row:last-child {
+    margin-bottom: 0;
+}
+
+/* 3-Column Split Allocation Model */
+.timeline-col-media, .timeline-col-text {
+    width: 45%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.timeline-col-node {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Clean Pill-Style Time Track Badges */
+.time-pill-badge {
+    background-color: #ffffff;
+    color: #444444;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    border: 1px solid #c2cebd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    z-index: 10;
+}
+
+/* Text Content Positioning Alignment Handles */
+.timeline-text-content {
+    padding: 0 20px;
+}
+
+.timeline-text-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: #2c3b29;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.timeline-text-content .event-tagline {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--wedding-pink);
+    font-weight: 500;
+}
+
+.align-left { text-align: left; padding-left: 30px; }
+.align-right { text-align: right; padding-right: 30px; }
+
+/* Isolated PNG Image Viewports */
+.timeline-img-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.timeline-graphic {
     max-width: 100%;
     height: auto;
-    max-height: 280px; 
+    max-height: 240px;
     object-fit: contain;
-    /* Soft shadow edge mapping directly onto transparent PNG outlines */
-    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.12)); 
+    /* Soft edge mapping drop-shadow directly on asset transparency */
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.12));
 }
 
-/* CARD 5: STATIONARY MAP SNAPSHOT DESIGN */
+/* --- CARD 5: STATIONARY MAP SNAPSHOT DESIGN --- */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
 .venue-address { font-size: 1.2rem; color: #444; margin: 12px auto 30px auto; font-weight: 500; }
 
@@ -315,7 +391,59 @@ body {
 .closing-couple { font-family: var(--font-script); font-size: 3.2rem; font-weight: 400; margin: 8px 0; color: #ecdcd3; }
 .closing-date { font-size: 1.1rem; letter-spacing: 2px; font-weight: 400; opacity: 0.9; }
 
-/* Responsive Adjustments */
+
+/* --- MOBILE AND TABLET RESPONSIVE FALLBACK ENGINE --- */
+@media (max-width: 768px) {
+    .timeline-stem-line {
+        left: 35px;
+        transform: none;
+    }
+    
+    .timeline-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+    
+    /* Forces alternating rows to march uniformly down the single column on tiny track viewports */
+    .timeline-row.row-right-img {
+        flex-direction: column-reverse;
+    }
+    
+    .timeline-col-media, .timeline-col-text, .timeline-col-node {
+        width: 100%;
+        text-align: left;
+    }
+    
+    .timeline-col-node {
+        padding-left: 15px;
+        justify-content: flex-start;
+    }
+    
+    .time-pill-badge {
+        font-size: 0.8rem;
+    }
+    
+    .timeline-text-content {
+        padding-left: 70px;
+        padding-right: 15px;
+    }
+    
+    .align-right {
+        text-align: left;
+    }
+    
+    .timeline-img-wrapper {
+        padding-left: 70px;
+        justify-content: flex-start;
+    }
+    
+    .timeline-graphic {
+        max-height: 180px;
+    }
+}
+
 @media (max-width: 500px) {
     .main-closed-envelope { width: 92vw; }
     .invite-headline { font-size: 3.5rem; }
@@ -327,8 +455,5 @@ body {
     .interactive-map-box {
         height: 200px; 
         max-width: 90vw;
-    }
-    .event-illustration {
-        max-height: 220px;
     }
 }
