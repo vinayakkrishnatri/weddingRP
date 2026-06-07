@@ -145,7 +145,6 @@ body {
     text-align: center;
 }
 
-.white-bg { background-color: var(--card-cream); }
 .mint-bg { background-color: var(--card-mint); }
 
 .section-title {
@@ -166,7 +165,38 @@ body {
     text-align: center;
 }
 
-/* CARD 1: GANESHA & ENTRY NAMES */
+/* ==========================================================================
+   CARD 1: PALACE THEMED ENTRY BACKGROUND (UPDATED IMMERSION LAYER)
+   ========================================================================== */
+.white-bg { 
+    background-color: var(--card-cream); 
+    position: relative;
+    overflow: hidden;
+}
+
+/* Semi-transparent decorative ethnic gateway backdrop watermark */
+.white-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/palace_bg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.12; 
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Pushes the greeting content layer securely ahead of the backdrop watermark sheet */
+.white-bg .card-body {
+    position: relative;
+    z-index: 5;
+}
+
 .ganesha-icon { width: 80px; height: auto; margin-bottom: 12px; }
 .mantra { font-size: 0.95rem; letter-spacing: 2px; color: #666; margin-bottom: 35px; }
 .invitation-prose { font-size: 1.15rem; line-height: 1.7; margin-bottom: 40px; color: var(--text-muted); }
@@ -248,7 +278,7 @@ body {
 .card-avatar-wrapper {
     width: 130px;
     height: 130px;
-    margin-top: -65px; /* Pulls portrait up cleanly to overlap the scenery banner border */
+    margin-top: -65px; 
     background: #ffffff;
     border-radius: 50%;
     border: 3px solid #ffffff;
@@ -294,7 +324,7 @@ body {
     border: 1px solid #eae5db;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
     overflow: hidden;
-    padding: 45px 40px 0 40px; /* Zero padding on bottom lets scenery anchor flush to baseline edges */
+    padding: 45px 40px 0 40px; 
     text-align: center;
 }
 
@@ -341,7 +371,7 @@ body {
 
 /* Anchors the IITK campus line art cleanly into the baseline footer curve */
 .card-scenery-footer {
-    width: calc(100% + 80px); /* Extends margin parameters cleanly across left/right paddings */
+    width: calc(100% + 80px); 
     margin-left: -40px;
     height: 180px;
     overflow: hidden;
@@ -382,6 +412,7 @@ body {
         height: 120px;
     }
 }
+
 /* ==========================================================================
    CARD 4: TIMELINE RENDERING TRACK SYSTEM
    ========================================================================== */
