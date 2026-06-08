@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rahul & Priyanka Wedding Invitation</title>
     <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -13,7 +14,6 @@
 
     <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
 
-    <!-- FLOATING FLOWER RAIN ENGINE -->
     <div class="global-flower-rain">
         <span class="petal p1">🌸</span>
         <span class="petal p2">🏵️</span>
@@ -25,7 +25,6 @@
         <span class="petal p8">🏵️</span>
     </div>
 
-    <!-- LANDING COVER PAGE LAYER -->
     <section id="cover-page">
         <div id="envelope-trigger" class="envelope-wrapper">
             <img src="assets/closed-envelope.png" alt="Wedding Envelope" class="main-closed-envelope">
@@ -36,10 +35,8 @@
         </div>
     </section>
 
-    <!-- MAIN UNVEILED CONTENT -->
     <div id="main-content" class="hidden">
         
-        <!-- CARD 1: GANESHA MANTRA & WELCOME TITLES -->
         <section class="card-section white-bg">
             <div class="card-body">
                 <img src="assets/ganesha.png" alt="Shree Ganesha" class="ganesha-icon">
@@ -51,41 +48,52 @@
                 </p>
                 
                 <h1 class="groom-name">Rahul</h1>
-                <p class="parentage">S/o Mr. Rajendra Kumar Jaiswal<br>& Mrs. Geeta Devi Jaiswal</p>
+                <p class="parentage">S/o Mrs. Geeta Devi Jaiswal<br>& Mr. Rajendra Kumar Jaiswal</p>
                 
                 <p class="with-separator">with</p>
                 
                 <h1 class="bride-name">Priyanka</h1>
-                <p class="parentage">D/o Mr. Sanjeev Khosla<br>& Mrs. Neena Khosla</p>
+                <p class="parentage">D/o Mrs. Neena Khosla<br>& Mr. Sanjeev Khosla</p>
             </div>
         </section>
 
-        <!-- CARD 2: COUNTDOWN TIMER DISPLAY -->
-        <section class="card-section mint-bg">
-            <div class="card-body">
-                <div class="save-the-date-box">
-                    <p class="std-title">SAVE THE DATE</p>
-                    <h2 class="std-date">7th July 2026</h2>
+<!-- CARD 2: TOTAL COUNTDOWN & TIMER INTERACTIVE SCRATCH REVEAL -->
+        <section class="card-section white-bg">
+            <div class="card-body container-chrono-lock">
+                
+                <!-- UNIFIED INTERACTIVE MASTER SCRATCH AREA -->
+                <div class="scratch-card-container multi-reveal-frame">
+                    
+                    <!-- EVERYTHING INSIDE HERE SITS UNDER THE GOLD FOIL -->
+                    <div class="scratch-reveal-base-content combined-layout-base">
+                        <div class="date-reveal-segment">
+                            <p class="std-title">SAVE THE DATE</p>
+                            <h2 class="std-date elegant-script-date">7th July 2026</h2>
+                        </div>
+                        
+                        <div id="timer" class="timer-inner-layout">
+                            <div class="time-box"><span id="days">00</span><p>DAYS</p></div>
+                            <div class="time-box"><span id="hours">00</span><p>HOURS</p></div>
+                            <div class="time-box"><span id="minutes">00</span><p>MINUTES</p></div>
+                            <div class="time-box"><span id="seconds">00</span><p>SECONDS</p></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Master Golden Coating Overlay -->
+                    <canvas id="scratch-canvas" class="scratch-canvas-overlay"></canvas>
                 </div>
 
-                <div id="timer">
-                    <div class="time-box"><span id="days">00</span><p>DAYS</p></div>
-                    <div class="time-box"><span id="hours">00</span><p>HOURS</p></div>
-                    <div class="time-box"><span id="minutes">00</span><p>MINUTES</p></div>
-                    <div class="time-box"><span id="seconds">00</span><p>SECONDS</p></div>
-                </div>
             </div>
         </section>
 
-        <!-- CARD 3: OUR JOURNEY & STORY LAYOUT (SEAMLESS IMMERSION WRAP) -->
-<section class="card-section white-bg story-section-clean">
+        <section class="card-section white-bg story-section-clean">
             <div class="card-body wide-story-body">
                 <h2 class="section-title">Our Journey & Story</h2>
-                <p class="section-subtitle">Every love story is beautiful, but ours is our favorite</p>
+                <p class="section-subtitle">Placeholder line for our story section subtitle description goes here</p>
                 
                 <div class="gallery-card-row">
                     
-                    <div class="elegant-story-card">
+                    <div class="elegant-story-card groom-allahabad">
                         <div class="card-scenery-header">
                             <img src="assets/allahabad_bg.png" alt="Allahabad" class="header-scenery-img">
                         </div>
@@ -93,10 +101,10 @@
                             <img src="assets/groom.png" alt="The Groom" class="avatar-img-fluid">
                         </div>
                         <h3>The Groom</h3>
-                        <p class="bio-text">Placeholder details about Rahul's journey, background, and quirks.</p>
+                        <p class="bio-text">Placeholder details about Rahul's journey, background, and quirks. You can freely edit this text directly inside your HTML paragraph block.</p>
                     </div>
 
-                    <div class="elegant-story-card">
+                    <div class="elegant-story-card bride-delhi">
                         <div class="card-scenery-header">
                             <img src="assets/delhi_bg.png" alt="Delhi" class="header-scenery-img">
                         </div>
@@ -104,7 +112,7 @@
                             <img src="assets/bride.png" alt="The Bride" class="avatar-img-fluid">
                         </div>
                         <h3>The Bride</h3>
-                        <p class="bio-text">Placeholder details about Priyanka's journey, passions, and spirit.</p>
+                        <p class="bio-text">Placeholder details about Priyanka's journey, passions, and spirit. You can freely edit this text directly inside your HTML paragraph block.</p>
                     </div>
 
                 </div>
@@ -112,7 +120,7 @@
                 <div class="elegant-wide-story-card">
                     <div class="wide-card-header">
                         <h3>Our Story</h3>
-                        <p class="wide-card-subtitle">How we met, fell in love, and decided on forever</p>
+                        <p class="wide-card-placeholder-text">Placeholder details about your love story, timeline, how you both met, fell in love, and decided on forever.</p>
                     </div>
                     
                     <div class="wide-card-photo-flex">
@@ -132,7 +140,6 @@
             </div>
         </section>
 
-        <!-- CARD 4: EVENT RITUALS SCHEDULE TIMELINE -->
         <section class="card-section schedule-timeline-section">
             <div class="timeline-body">
                 <h2 class="section-title">Events Schedule</h2>
@@ -141,7 +148,6 @@
                 <div class="visual-timeline-container">
                     <div class="timeline-stem-line"></div>
 
-                    <!-- Event Block 1: Baraat -->
                     <div class="timeline-row row-left-img">
                         <div class="timeline-col-media">
                             <div class="timeline-img-wrapper">
@@ -159,7 +165,6 @@
                         </div>
                     </div>
 
-                    <!-- Event Block 2: Jaimala -->
                     <div class="timeline-row row-right-img">
                         <div class="timeline-col-text">
                             <div class="timeline-text-content align-right">
@@ -177,7 +182,6 @@
                         </div>
                     </div>
 
-                    <!-- Event Block 3: Vidai -->
                     <div class="timeline-row row-left-img">
                         <div class="timeline-col-media">
                             <div class="timeline-img-wrapper">
@@ -198,7 +202,6 @@
             </div>
         </section>
 
-        <!-- CARD 5: LOCATION VENUE SNAPSHOT & MAP MAPS -->
         <section class="card-section white-bg">
             <div class="card-body">
                 <h2 class="venue-title">Where We Celebrate</h2>
@@ -214,7 +217,6 @@
             </div>
         </section>
 
-        <!-- COMPACT SIGNATURE BANNER FOOTER -->
         <footer class="compact-brown-banner">
             <p class="closing-love">WITH LOVE</p>
             <h2 class="closing-couple">Rahul & Priyanka</h2>
