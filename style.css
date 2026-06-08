@@ -166,7 +166,7 @@ body {
 }
 
 /* ==========================================================================
-   CARD 1: PALACE THEMED ENTRY BACKGROUND (UPDATED IMMERSION LAYER)
+   CARD 1 & CARD 5: PALACE ENTRY THEME ENGINE (FIXED COVERAGE & NO TOP-CROP)
    ========================================================================== */
 .white-bg { 
     background-color: var(--card-cream); 
@@ -174,7 +174,7 @@ body {
     overflow: hidden;
 }
 
-/* Semi-transparent decorative ethnic gateway backdrop watermark */
+/* Continuous background watermark layer securely fixed to the top edge */
 .white-bg::before {
     content: '';
     position: absolute;
@@ -183,15 +183,14 @@ body {
     width: 100%;
     height: 100%;
     background-image: url('assets/palace_bg.png');
-    background-size: cover;
-    background-position: center center;
+    background-size: 100% auto; /* Fluidly scales width to screen edges without distortion */
+    background-position: center top; /* Forces domes and arches to stay anchored in frame */
     background-repeat: no-repeat;
     opacity: 0.12; 
     pointer-events: none;
     z-index: 1;
 }
 
-/* Pushes the greeting content layer securely ahead of the backdrop watermark sheet */
 .white-bg .card-body {
     position: relative;
     z-index: 5;
@@ -211,23 +210,80 @@ body {
 .parentage { font-size: 1rem; line-height: 1.6; color: #555; margin: 12px 0 28px 0; font-weight: 500; }
 .with-separator { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; margin-bottom: 28px; color: #444; }
 
-/* CARD 2: TICKING CHRONO COUNTDOWN */
-.save-the-date-box { border: 1px solid #d4c5b3; padding: 30px 20px; border-radius: 16px; margin-bottom: 35px; background-color: rgba(255,255,255,0.4); }
-.std-title { font-size: 0.9rem; letter-spacing: 3px; color: #777; }
-.std-date { font-family: var(--font-script); font-size: 3.6rem; color: var(--wedding-pink); font-weight: 400; margin-top: 5px; }
 
-#timer { display: flex; justify-content: center; gap: 14px; }
-.time-box { background: white; border: 1px solid #e6dfd5; border-radius: 14px; width: 90px; padding: 18px 5px; box-shadow: 0 6px 15px rgba(0,0,0,0.02); }
-.time-box span { font-size: 2rem; font-weight: 600; color: var(--wedding-pink); display: block; line-height: 1.1; }
-.time-box p { font-size: 0.7rem; letter-spacing: 1px; color: #777; margin-top: 5px; font-weight: 600; }
+/* ==========================================================================
+   CARD 2: UNIFIED TIMING & SCRATCH CORE MODULE
+   ========================================================================== */
+.container-chrono-lock {
+    max-width: 500px !important; /* Slightly widened to frame the timer inside cleanly */
+    width: 100%;
+}
+
+.multi-reveal-frame {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04);
+}
+
+/* Base structural wrapper container hiding underneath the foil */
+.combined-layout-base {
+    border: 1px solid #d4c5b3;
+    padding: 40px 24px;
+    border-radius: 24px;
+    background-color: rgba(254, 248, 242, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.date-reveal-segment {
+    text-align: center;
+}
+
+/* FIX: Applies the fluid romantic calligraphy font family to the revealed date text */
+.elegant-script-date {
+    font-family: var(--font-script) !important;
+    font-size: 3.8rem !important;
+    color: var(--wedding-pink);
+    font-weight: 400;
+    margin-top: 8px;
+    line-height: 1.1;
+}
+
+.timer-inner-layout {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Master canvas sheet overlay stretching dynamically to fit both blocks */
+.scratch-canvas-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%23dca134" opacity="0.5"/></svg>'), auto;
+    touch-action: none;
+    z-index: 20;
+    border-radius: 24px;
+}
 
 
 /* ==========================================================================
-   CARD 3: ELEGANT GALLERY LAYOUT ENGINE (CLEAN & PRETTY)
+   CARD 3: ELEGANT GALLERY MATRIX (UNCROPPED HEADERS & FOOTERS)
    ========================================================================== */
 .story-section-clean {
-    background-color: var(--card-cream);
+    background-color: transparent !important; 
     padding: 80px 24px;
+    width: 100%;
 }
 
 .wide-story-body {
@@ -236,7 +292,7 @@ body {
     margin: 0 auto;
 }
 
-/* --- ROW 1: VERTICAL ROOT PROFILE CARDS --- */
+/* --- ROW 1: THE PROFILE CARDS --- */
 .gallery-card-row {
     display: flex !important;
     flex-direction: row !important;
@@ -248,31 +304,40 @@ body {
 
 .elegant-story-card {
     width: 48%;
-    background: #ffffff;
-    border-radius: 20px;
+    min-height: 540px; 
+    background: #ffffff !important; 
+    border-radius: 24px;
     border: 1px solid #eae5db;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     overflow: hidden;
     text-align: center;
-    padding-bottom: 35px;
+    padding-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Top Banner Frame inside the individual profile cards */
 .card-scenery-header {
     width: 100%;
-    height: 130px;
-    background-color: #fcfbfa;
+    height: auto; 
+    aspect-ratio: 2744 / 1568; /* Locks exactly to your widescreen artwork bounds */
     border-bottom: 1px solid #f3efe6;
     overflow: hidden;
+}
+
+/* Fills trailing edge coordinates with native vector sky values */
+.groom-allahabad .card-scenery-header {
+    background-color: #f7f2e8 !important; 
+}
+
+.bride-delhi .card-scenery-header {
+    background-color: #f9ecd2 !important; 
 }
 
 .header-scenery-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Prevents edge cropping or truncation */
 }
 
 .card-avatar-wrapper {
@@ -281,12 +346,14 @@ body {
     margin-top: -65px; 
     background: #ffffff;
     border-radius: 50%;
-    border: 3px solid #ffffff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 4px solid #ffffff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
+    z-index: 10;
 }
 
 .avatar-img-fluid {
@@ -295,85 +362,83 @@ body {
     object-fit: contain;
 }
 
-/* Zoom balance anchor removing whitespace around the Bride drawing lines */
 .bride-scale-fix .avatar-img-fluid {
-    transform: scale(1.6);
+    transform: scale(1.65);
     transform-origin: center center;
 }
 
 .elegant-story-card h3 {
     font-family: var(--font-serif);
-    font-size: 1.75rem;
+    font-size: 1.9rem;
     color: #2c3b29;
     font-weight: 600;
-    margin: 15px 0 10px 0;
+    margin: 20px 0 12px 0;
 }
 
 .elegant-story-card .bio-text {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
     color: var(--text-muted);
-    padding: 0 25px;
+    padding: 0 35px;
 }
 
-/* --- ROW 2: CLEAN CENTRIC WIDE EXHIBITION CARD --- */
+/* --- ROW 2: OUR STORY FEATURE BLOCKS --- */
 .elegant-wide-story-card {
     width: 100%;
-    background: #ffffff;
-    border-radius: 20px;
+    background: #ffffff !important; 
+    border-radius: 24px;
     border: 1px solid #eae5db;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     overflow: hidden;
-    padding: 45px 40px 0 40px; 
+    padding: 50px 40px 0 40px; 
     text-align: center;
 }
 
-.wide-card-header {
-    margin-bottom: 35px;
-}
+.wide-card-header { margin-bottom: 40px; }
+.wide-card-header h3 { font-family: var(--font-serif); font-size: 2.2rem; color: #2c3b29; font-weight: 600; }
 
-.wide-card-header h3 {
-    font-family: var(--font-serif);
-    font-size: 2.1rem;
-    color: #2c3b29;
-    font-weight: 600;
-}
-
-.wide-card-subtitle {
+.wide-card-placeholder-text {
     font-size: 1.05rem;
-    font-style: italic;
+    line-height: 1.6;
     color: var(--text-muted);
-    margin-top: 4px;
+    max-width: 650px;
+    margin: 8px auto 0 auto;
 }
 
 .wide-card-photo-flex {
     display: flex !important;
     flex-direction: row !important;
     justify-content: center;
-    gap: 35px;
-    margin-bottom: 45px;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 50px;
     width: 100%;
 }
 
 .inline-photo-frame {
-    width: 280px;
-    height: 280px;
+    width: 320px;
+    height: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: transparent !important; 
+    border: none !important;            
+    box-shadow: none !important;        
+    padding: 0 !important;
 }
 
 .story-photo-render {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: contain; 
 }
 
-/* Anchors the IITK campus line art cleanly into the baseline footer curve */
+/* Locks the IIT Kanpur skyline cleanly without vertical clipping */
 .card-scenery-footer {
     width: calc(100% + 80px); 
     margin-left: -40px;
-    height: 180px;
+    height: auto; 
+    aspect-ratio: 2752 / 1536; 
     overflow: hidden;
     border-top: 1px solid #f3efe6;
     background-color: #fcfbfa;
@@ -382,36 +447,9 @@ body {
 .footer-scenery-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
-/* --- MOBILE BREAKPOINT ADJUSTMENTS --- */
-@media (max-width: 768px) {
-    .gallery-card-row, .wide-card-photo-flex {
-        flex-direction: column !important;
-        align-items: center;
-        gap: 30px;
-    }
-    
-    .elegant-story-card {
-        width: 100%;
-    }
-    
-    .inline-photo-frame {
-        width: 240px;
-        height: 240px;
-    }
-    
-    .elegant-wide-story-card {
-        padding: 35px 20px 0 20px;
-    }
-    
-    .card-scenery-footer {
-        width: calc(100% + 40px);
-        margin-left: -20px;
-        height: 120px;
-    }
-}
 
 /* ==========================================================================
    CARD 4: TIMELINE RENDERING TRACK SYSTEM
@@ -487,7 +525,7 @@ body {
 }
 
 
-/* --- CARD 5: RECEPTACLE INFRASTRUCTURE INTERACTIVE MAP --- */
+/* --- CARD 5: VENUE INFRASTRUCTURE INTERACTIVE MAP --- */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
 .venue-address { font-size: 1.2rem; color: #444; margin: 12px auto 30px auto; font-weight: 500; }
 
@@ -503,7 +541,7 @@ body {
 }
 .directions-btn:hover { transform: scale(1.02); }
 
-/* FOOTER CAP ENTRY BLOCK */
+/* COMPACT BANNER FOOTER */
 .compact-brown-banner { background-color: #4a3b34; color: #f7f1ed; text-align: center; padding: 35px 20px; width: 100%; }
 .closing-love { letter-spacing: 4px; font-size: 0.85rem; opacity: 0.75; font-weight: 600; }
 .closing-couple { font-family: var(--font-script); font-size: 3.2rem; font-weight: 400; margin: 8px 0; color: #ecdcd3; }
@@ -514,31 +552,34 @@ body {
    MOBILE MEDIA VIEWPORTS BREAKPOINT BALANCERS
    ========================================================================== */
 @media (max-width: 768px) {
-    .seamless-roots-row-pane {
-        flex-direction: column !important;
-        align-items: center;
-        gap: 60px;
-        padding: 40px 24px 200px 24px;
-    }
-    
-    .seamless-roots-row-pane::before, .seamless-roots-row-pane::after {
-        width: 50%;
-        height: 160px;
-    }
-    
-    .profile-story-node {
-        width: 100%;
+    .white-bg::before {
+        background-size: 160% auto; /* Scales canvas on mobile displays so vectors feel prominent */
     }
 
-    .seamless-gallery-grid {
+    .gallery-card-row, .wide-card-photo-flex {
         flex-direction: column !important;
         align-items: center;
-        gap: 30px;
+        gap: 35px;
     }
     
-    .clean-gallery-item {
-        width: 290px;
-        height: 290px;
+    .elegant-story-card {
+        width: 100%;
+        min-height: auto;
+    }
+    
+    .inline-photo-frame {
+        width: 260px;
+        height: 260px;
+    }
+    
+    .elegant-wide-story-card {
+        padding: 40px 20px 0 20px;
+    }
+    
+    .card-scenery-footer {
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        height: auto;
     }
 
     .timeline-stem-line {
