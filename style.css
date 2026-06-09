@@ -166,7 +166,7 @@ body {
 }
 
 /* ==========================================================================
-   CARD 1 & CARD 5: PALACE ENTRY THEME ENGINE (FIXED COVERAGE & NO TOP-CROP)
+   CARD 1 & CARD 5: GLOBAL PALACE BACKGROUND STRUCTURE (TOP ANCHORED)
    ========================================================================== */
 .white-bg { 
     background-color: var(--card-cream); 
@@ -174,17 +174,17 @@ body {
     overflow: hidden;
 }
 
-/* Continuous background watermark layer securely fixed to the top edge */
 .white-bg::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     height: 100%;
     background-image: url('assets/palace_bg.png');
-    background-size: 100% auto; /* Fluidly scales width to screen edges without distortion */
-    background-position: center top; /* Forces domes and arches to stay anchored in frame */
+    background-size: 100% auto;
+    background-position: center top;
     background-repeat: no-repeat;
     opacity: 0.12; 
     pointer-events: none;
@@ -210,11 +210,12 @@ body {
 .parentage { font-size: 1rem; line-height: 1.6; color: #555; margin: 12px 0 28px 0; font-weight: 500; }
 .with-separator { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; margin-bottom: 28px; color: #444; }
 
+
 /* ==========================================================================
-   CARD 2: UNIFIED TIMING & SCRATCH CORE MODULE
+   CARD 2: UNIFIED COUNTDOWN TIMER DISPLAY & GOLD SCRATCH MODULE
    ========================================================================== */
 .container-chrono-lock {
-    max-width: 500px !important; /* Slightly widened to frame the timer inside cleanly */
+    max-width: 500px !important;
     width: 100%;
 }
 
@@ -229,7 +230,6 @@ body {
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04);
 }
 
-/* Base structural wrapper container hiding underneath the foil */
 .combined-layout-base {
     border: 1px solid #d4c5b3;
     padding: 40px 24px;
@@ -245,7 +245,8 @@ body {
     text-align: center;
 }
 
-/* FIX: Applies the fluid romantic calligraphy font family to the revealed date text */
+.std-title { font-size: 0.9rem; letter-spacing: 3px; color: #777; }
+
 .elegant-script-date {
     font-family: var(--font-script) !important;
     font-size: 3.8rem !important;
@@ -262,7 +263,6 @@ body {
     width: 100%;
 }
 
-/* Master canvas sheet overlay stretching dynamically to fit both blocks */
 .scratch-canvas-overlay {
     position: absolute;
     top: 0;
@@ -275,9 +275,14 @@ body {
     border-radius: 24px;
 }
 
+#timer { display: flex; justify-content: center; gap: 14px; }
+.time-box { background: white; border: 1px solid #e6dfd5; border-radius: 14px; width: 90px; padding: 18px 5px; box-shadow: 0 6px 15px rgba(0,0,0,0.02); }
+.time-box span { font-size: 2rem; font-weight: 600; color: var(--wedding-pink); display: block; line-height: 1.1; }
+.time-box p { font-size: 0.7rem; letter-spacing: 1px; color: #777; margin-top: 5px; font-weight: 600; }
+
 
 /* ==========================================================================
-   CARD 3: ELEGANT GALLERY MATRIX (UNCROPPED HEADERS & FOOTERS)
+   CARD 3: ELEGANT PROFILE SHIELD GALLERY & OUR STORY CARD
    ========================================================================== */
 .story-section-clean {
     background-color: transparent !important; 
@@ -291,7 +296,6 @@ body {
     margin: 0 auto;
 }
 
-/* --- ROW 1: THE PROFILE CARDS --- */
 .gallery-card-row {
     display: flex !important;
     flex-direction: row !important;
@@ -319,24 +323,18 @@ body {
 .card-scenery-header {
     width: 100%;
     height: auto; 
-    aspect-ratio: 2744 / 1568; /* Locks exactly to your widescreen artwork bounds */
+    aspect-ratio: 2744 / 1568; 
     border-bottom: 1px solid #f3efe6;
     overflow: hidden;
 }
 
-/* Fills trailing edge coordinates with native vector sky values */
-.groom-allahabad .card-scenery-header {
-    background-color: #f7f2e8 !important; 
-}
-
-.bride-delhi .card-scenery-header {
-    background-color: #f9ecd2 !important; 
-}
+.groom-allahabad .card-scenery-header { background-color: #f7f2e8 !important; }
+.bride-delhi .card-scenery-header { background-color: #f9ecd2 !important; }
 
 .header-scenery-img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Prevents edge cropping or truncation */
+    object-fit: contain; 
 }
 
 .card-avatar-wrapper {
@@ -381,7 +379,6 @@ body {
     padding: 0 35px;
 }
 
-/* --- ROW 2: OUR STORY FEATURE BLOCKS --- */
 .elegant-wide-story-card {
     width: 100%;
     background: #ffffff !important; 
@@ -432,7 +429,6 @@ body {
     object-fit: contain; 
 }
 
-/* Locks the IIT Kanpur skyline cleanly without vertical clipping */
 .card-scenery-footer {
     width: calc(100% + 80px); 
     margin-left: -40px;
@@ -451,7 +447,7 @@ body {
 
 
 /* ==========================================================================
-   CARD 4: TIMELINE RENDERING TRACK SYSTEM (OPTIMIZED GRAPHICS)
+   CARD 4: EVENTS SCHEDULE TIMELINE TRACK ARCHITECTURE
    ========================================================================== */
 .schedule-timeline-section {
     background-color: #e3ebe0;
@@ -466,7 +462,7 @@ body {
 }
 
 .timeline-body { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 20px; }
-.visual-timeline-container { position: relative; width: 100%; margin-top: 60px; display: flex; flex-direction: column; gap: 40px; }
+.visual-timeline-container { position: relative; width: 100%; margin-top: 60px; display: flex; flex-direction: column; gap: 60px; }
 
 .timeline-stem-line {
     position: absolute;
@@ -486,123 +482,47 @@ body {
     width: 100%;
     position: relative;
     z-index: 5;
-    min-height: 200px;
 }
 
 .timeline-col-media, .timeline-col-text { width: 42%; flex-shrink: 0; flex-grow: 0; }
 .timeline-col-node { width: 16%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; flex-grow: 0; }
 
-/* FIX: Significantly enlarged the time stamp badges across all viewports */
 .time-pill-badge {
     background-color: #ffffff;
     color: #4a5547;
-    font-size: 1.15rem; /* Bumped from 0.85rem for standout premium clarity */
+    font-size: 1.15rem;
     font-weight: 600;
-    padding: 10px 22px; /* Increased padding framework footprint */
+    padding: 10px 22px;
     border-radius: 30px;
     white-space: nowrap;
     border: 1px solid #b8c7b4;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
     font-family: var(--font-serif);
-    letter-spacing: 0.5px;
 }
 
-.timeline-text-content { display: flex; flex-direction: column; justify-content: center; }
-.timeline-text-content h3 { font-family: var(--font-serif); font-size: 1.75rem; color: #2c3b29; font-weight: 600; margin-bottom: 6px; line-height: 1.2; }
-.timeline-text-content .event-tagline { font-size: 1.05rem; font-style: italic; color: var(--wedding-pink); font-weight: 500; }
+.timeline-text-content h3 { font-family: var(--font-serif); font-size: 1.85rem; color: #2c3b29; font-weight: 600; margin-bottom: 6px; line-height: 1.2; }
+.timeline-text-content .event-tagline { font-size: 1.1rem; font-style: italic; color: var(--wedding-pink); font-weight: 500; }
 
-.align-left { text-align: left; padding-left: 30px; }
-.align-right { text-align: right; padding-right: 30px; }
+.row-left-img { flex-direction: row; }
+.row-left-img .timeline-text-content { text-align: left; padding-left: 40px; }
+.row-left-img .timeline-img-wrapper { justify-content: flex-end; padding-right: 40px; }
+
+.row-right-img { flex-direction: row-reverse; }
+.row-right-img .timeline-text-content { text-align: right; padding-right: 40px; }
+.row-right-img .timeline-img-wrapper { justify-content: flex-start; padding-left: 40px; }
 
 .timeline-img-wrapper { width: 100%; display: flex; align-items: center; }
-.row-left-img .timeline-img-wrapper { justify-content: flex-end; padding-right: 30px; }
-.row-right-img .timeline-img-wrapper { justify-content: flex-start; padding-left: 30px; }
 
-/* FIX: Scaled down the illustration frame boundaries so photos sit subtly */
 .timeline-graphic {
     width: 100%;
-    max-width: 220px; /* Reduced from 320px to make them elegantly compact */
+    max-width: 220px; 
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.06));
+    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.05));
 }
 
 
-/* ==========================================================================
-   MOBILE DESIGN ENGINE: TARGETED FLEX RESPONSIVE RE-ORDERING
-   ========================================================================== */
-@media (max-width: 768px) {
-    .timeline-stem-line {
-        left: 35px;
-        transform: none;
-        display: none; /* Hiding the straight line on mobile creates cleaner card stacks */
-    }
-    
-    .timeline-row {
-        width: 100% !important;
-        min-height: auto;
-        margin-bottom: 50px;
-        padding: 0;
-        display: flex !important;
-    }
-    
-    .timeline-col-media, .timeline-col-text, .timeline-col-node {
-        width: 100% !important;
-        text-align: left !important;
-    }
-
-    /* --- ARCHITECTURE A: BARAAT & VIDAI STACK ENGINE --- */
-    .mobile-stack-photo-middle {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 16px;
-    }
-
-    /* Explicit CSS order parameter shifting blocks precisely around the canvas */
-    .mobile-stack-photo-middle .timeline-col-node { order: 1 !important; }  /* 1st: Time Stamp */
-    .mobile-stack-photo-middle .timeline-col-media { order: 2 !important; } /* 2nd: Photo Graphic */
-    .mobile-stack-photo-middle .timeline-col-text { order: 3 !important; }  /* 3rd: Text Title Block */
-
-    .mobile-stack-photo-middle .timeline-text-content {
-        padding-left: 10px !important;
-    }
-    
-    .mobile-stack-photo-middle .timeline-img-wrapper {
-        justify-content: flex-start !important;
-        padding-left: 10px !important;
-        margin: 10px 0;
-    }
-
-    /* --- ARCHITECTURE B: JAIMALA FIXED IMMERSION LINK --- */
-    .mobile-keep-side-by-side {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 16px;
-    }
-
-    /* Maintains standard text adjacent tracking mapping rules */
-    .mobile-keep-side-by-side .timeline-col-node { order: 1 !important; }  /* 1st: Time Stamp */
-    .mobile-keep-side-by-side .timeline-col-text { order: 2 !important; }  /* 2nd: Title sitting neatly underneath */
-    .mobile-keep-side-by-side .timeline-col-media { order: 3 !important; } /* 3rd: Photo Graphic at base */
-
-    .mobile-keep-side-by-side .timeline-text-content {
-        padding-right: 0 !important;
-        padding-left: 10px !important;
-        text-align: left !important;
-    }
-
-    .mobile-keep-side-by-side .timeline-img-wrapper {
-        justify-content: flex-start !important;
-        padding-left: 10px !important;
-        margin-top: 10px;
-    }
-    
-    .timeline-graphic {
-        max-width: 180px; /* Micro-scaled down even tighter for perfect mobile fits */
-    }
-}
-
-/* --- CARD 5: VENUE INFRASTRUCTURE INTERACTIVE MAP --- */
+/* --- CARD 5: MAP INTERACTION COMPONENT --- */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
 .venue-address { font-size: 1.2rem; color: #444; margin: 12px auto 30px auto; font-weight: 500; }
 
@@ -618,7 +538,6 @@ body {
 }
 .directions-btn:hover { transform: scale(1.02); }
 
-/* COMPACT BANNER FOOTER */
 .compact-brown-banner { background-color: #4a3b34; color: #f7f1ed; text-align: center; padding: 35px 20px; width: 100%; }
 .closing-love { letter-spacing: 4px; font-size: 0.85rem; opacity: 0.75; font-weight: 600; }
 .closing-couple { font-family: var(--font-script); font-size: 3.2rem; font-weight: 400; margin: 8px 0; color: #ecdcd3; }
@@ -626,75 +545,47 @@ body {
 
 
 /* ==========================================================================
-   MOBILE DESIGN ENGINE: TARGETED FLEX RESPONSIVE RE-ORDERING
+   MOBILE DISPLAYS BREAKPOINT ADAPTERS ENGINE (THE TIMELINE RE-FIX)
    ========================================================================== */
 @media (max-width: 768px) {
-    .timeline-stem-line {
-        left: 35px;
-        transform: none;
-        display: none; /* Hiding the straight line on mobile creates cleaner card stacks */
+    .white-bg::before {
+        background-size: 160% auto; 
+    }
+
+    /* --- CARD 3 GALLERY GRID MOBILE BREAKS --- */
+    .gallery-card-row, .wide-card-photo-flex {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 35px;
     }
     
-    .timeline-row {
-        width: 100% !important;
+    .elegant-story-card {
+        width: 100%;
         min-height: auto;
-        margin-bottom: 50px;
-        padding: 0;
-        display: flex !important;
     }
     
-    .timeline-col-media, .timeline-col-text, .timeline-col-node {
-        width: 100% !important;
-        text-align: left !important;
-    }
-
-    /* --- ARCHITECTURE A: BARAAT & VIDAI STACK ENGINE --- */
-    .mobile-stack-photo-middle {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 16px;
-    }
-
-    /* Explicit CSS order parameter shifting blocks precisely around the canvas */
-    .mobile-stack-photo-middle .timeline-col-node { order: 1 !important; }  /* 1st: Time Stamp */
-    .mobile-stack-photo-middle .timeline-col-media { order: 2 !important; } /* 2nd: Photo Graphic */
-    .mobile-stack-photo-middle .timeline-col-text { order: 3 !important; }  /* 3rd: Text Title Block */
-
-    .mobile-stack-photo-middle .timeline-text-content {
-        padding-left: 10px !important;
+    .inline-photo-frame {
+        width: 260px;
+        height: 260px;
     }
     
-    .mobile-stack-photo-middle .timeline-img-wrapper {
-        justify-content: flex-start !important;
-        padding-left: 10px !important;
-        margin: 10px 0;
-    }
-
-    /* --- ARCHITECTURE B: JAIMALA FIXED IMMERSION LINK --- */
-    .mobile-keep-side-by-side {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 16px;
-    }
-
-    /* Maintains standard text adjacent tracking mapping rules */
-    .mobile-keep-side-by-side .timeline-col-node { order: 1 !important; }  /* 1st: Time Stamp */
-    .mobile-keep-side-by-side .timeline-col-text { order: 2 !important; }  /* 2nd: Title sitting neatly underneath */
-    .mobile-keep-side-by-side .timeline-col-media { order: 3 !important; } /* 3rd: Photo Graphic at base */
-
-    .mobile-keep-side-by-side .timeline-text-content {
-        padding-right: 0 !important;
-        padding-left: 10px !important;
-        text-align: left !important;
-    }
-
-    .mobile-keep-side-by-side .timeline-img-wrapper {
-        justify-content: flex-start !important;
-        padding-left: 10px !important;
-        margin-top: 10px;
+    .elegant-wide-story-card {
+        padding: 40px 20px 0 20px;
     }
     
-    .timeline-graphic {
-        max-width: 180px; /* Micro-scaled down even tighter for perfect mobile fits */
+    .card-scenery-footer {
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        height: auto;
     }
-}
+
+    /* --- CARD 4 TIMELINE STACK & RE-ORDER MECHANISM --- */
+    .timeline-stem-line {
+        left: 55px !important;
+        transform: none !important;
+        display: block !important;
+        top: 10px;
+        bottom: 10px;
+    }
+    
+    .timeline-row, .row-left-img, .row-
