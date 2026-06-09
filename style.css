@@ -498,6 +498,8 @@ body {
     border: 1px solid #b8c7b4;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
     font-family: var(--font-serif);
+    position: relative;
+    z-index: 15;
 }
 
 .timeline-text-content h3 { font-family: var(--font-serif); font-size: 1.85rem; color: #2c3b29; font-weight: 600; margin-bottom: 6px; line-height: 1.2; }
@@ -579,13 +581,85 @@ body {
         height: auto;
     }
 
-    /* --- CARD 4 TIMELINE STACK & RE-ORDER MECHANISM --- */
+    /* --- CARD 4 TIMELINE STACK & CENTERED SPINE MECHANISM --- */
     .timeline-stem-line {
-        left: 55px !important;
-        transform: none !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
         display: block !important;
-        top: 10px;
-        bottom: 10px;
+        top: 20px;
+        bottom: 20px;
     }
     
-    .timeline-row, .row-left-img, .row-
+    .timeline-row, .row-left-img, .row-right-img {
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        position: relative;
+        margin-bottom: 40px;
+        gap: 12px;
+    }
+    
+    .timeline-col-node {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        z-index: 10;
+        margin-bottom: 4px;
+    }
+    
+    .time-pill-badge {
+        font-size: 0.95rem;
+        padding: 6px 14px;
+    }
+
+    .timeline-col-text, .timeline-col-media {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* Standardizes the stack order cleanly: 1. Time Badge -> 2. Text Content -> 3. Graphic Photo */
+    .timeline-col-text {
+        order: 1 !important; 
+        margin-top: 0 !important;    
+        margin-bottom: 4px;
+    }
+    
+    .timeline-col-media {
+        order: 2 !important; 
+    }
+
+    .timeline-text-content {
+        text-align: center !important;
+        padding: 0 !important;
+        align-items: center !important;
+    }
+    
+    .timeline-text-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .timeline-img-wrapper {
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+    
+    .timeline-graphic {
+        max-width: 190px; 
+    }
+}
+
+@media (max-width: 500px) {
+    .main-closed-envelope { width: 92vw; }
+    .invite-headline { font-size: 3.5rem; }
+    .groom-name, .bride-name { font-size: 3.8rem; }
+    .section-title { font-size: 3.2rem; }
+    #timer { gap: 8px; }
+    .time-box { width: 74px; padding: 14px 2px; }
+    .time-box span { font-size: 1.6rem; }
+    .interactive-map-box { height: 200px; max-width: 90vw; }
+}
