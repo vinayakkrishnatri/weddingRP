@@ -446,87 +446,83 @@ body {
 }
 
 
-/* --- CARD 4 TIMELINE STACK & CENTERED SPINE MECHANISM --- */
-    .timeline-stem-line {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        display: block !important;
-        top: 20px;
-        bottom: 20px;
-        z-index: 2 !important; /* Kept low so it stays behind the text and graphics layers */
-    }
-    
-    .timeline-row, .row-left-img, .row-right-img {
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 100% !important;
-        padding-left: 0 !important;
-        position: relative;
-        margin-bottom: 40px;
-        gap: 12px;
-    }
-    
-    .timeline-col-node {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        z-index: 20 !important; /* Elevated to sit proudly on top of the background line */
-        margin-bottom: 4px;
-    }
-    
-    .time-pill-badge {
-        font-size: 0.95rem;
-        padding: 6px 14px;
-    }
+/* ==========================================================================
+   CARD 4: EVENTS SCHEDULE TIMELINE TRACK ARCHITECTURE (DESKTOP NATIVE)
+   ========================================================================== */
+.schedule-timeline-section {
+    background-color: #e3ebe0;
+    background-image: linear-gradient(rgba(175, 195, 170, 0.15) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(175, 195, 170, 0.15) 1px, transparent 1px));
+    background-size: 24px 24px;
+    padding: 80px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .timeline-col-text, .timeline-col-media {
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        position: relative;
-        z-index: 10 !important; /* Pushes content boxes in front of the line */
-        /* FIX: Blocks the background line from passing through the text fields or illustrations */
-        background-color: #e3ebe0 !important; 
-    }
+.timeline-body { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.visual-timeline-container { position: relative; width: 100%; margin-top: 60px; display: flex; flex-direction: column; gap: 60px; }
 
-    /* Standardizes the stack order cleanly: 1. Time Badge -> 2. Text Content -> 3. Graphic Photo */
-    .timeline-col-text {
-        order: 1 !important; 
-        margin-top: 0 !important;    
-        margin-bottom: 4px;
-        padding: 5px 20px !important; /* Gives breathing room to mask out the line completely */
-    }
-    
-    .timeline-col-media {
-        order: 2 !important;
-        padding: 10px 0 !important; /* Protects illustrations from clipping line intersections */
-    }
+/* Desktop explicit central line background track */
+.timeline-stem-line {
+    position: absolute;
+    width: 2px;
+    background-color: #a3b59e;
+    top: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
 
-    .timeline-text-content {
-        text-align: center !important;
-        padding: 0 !important;
-        align-items: center !important;
-        background-color: #e3ebe0 !important; /* Secondary backup mask anchor */
-    }
-    
-    .timeline-text-content h3 {
-        font-size: 1.6rem;
-    }
+.timeline-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
 
-    .timeline-img-wrapper {
-        justify-content: center !important;
-        padding: 0 !important;
-        background-color: #e3ebe0 !important; /* Completely hides line elements behind images */
-    }
-    
-    .timeline-graphic {
-        max-width: 190px; 
-        position: relative;
-        z-index: 12;
-    }
+.timeline-col-media, .timeline-col-text { width: 42%; flex-shrink: 0; flex-grow: 0; }
+.timeline-col-node { width: 16%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; flex-grow: 0; }
+
+.time-pill-badge {
+    background-color: #ffffff !important;
+    color: #4a5547;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 30px;
+    white-space: nowrap;
+    border: 1px solid #b8c7b4 !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    font-family: var(--font-serif);
+    position: relative;
+    z-index: 15;
+}
+
+.timeline-text-content h3 { font-family: var(--font-serif); font-size: 1.85rem; color: #2c3b29; font-weight: 600; margin-bottom: 6px; line-height: 1.2; }
+.timeline-text-content .event-tagline { font-size: 1.1rem; font-style: italic; color: var(--wedding-pink); font-weight: 500; }
+
+.row-left-img { flex-direction: row; }
+.row-left-img .timeline-text-content { text-align: left; padding-left: 40px; }
+.row-left-img .timeline-img-wrapper { justify-content: flex-end; padding-right: 40px; }
+
+.row-right-img { flex-direction: row-reverse; }
+.row-right-img .timeline-text-content { text-align: right; padding-right: 40px; }
+.row-right-img .timeline-img-wrapper { justify-content: flex-start; padding-left: 40px; }
+
+.timeline-img-wrapper { width: 100%; display: flex; align-items: center; }
+
+.timeline-graphic {
+    width: 100%;
+    max-width: 220px; 
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.05));
+}
 
 
 /* --- CARD 5: MAP INTERACTION COMPONENT --- */
@@ -552,7 +548,7 @@ body {
 
 
 /* ==========================================================================
-   MOBILE DISPLAYS BREAKPOINT ADAPTERS ENGINE (THE TIMELINE RE-FIX)
+   MOBILE DISPLAYS BREAKPOINT ADAPTERS ENGINE (THE TIMELINE SEGMENT RE-FIX)
    ========================================================================== */
 @media (max-width: 768px) {
     .white-bg::before {
@@ -586,23 +582,38 @@ body {
         height: auto;
     }
 
-    /* --- CARD 4 TIMELINE STACK & CENTERED SPINE MECHANISM --- */
+    /* --- CARD 4 TIMELINE STACK & CLEAN BUBBLE CONNECTORS --- */
+    /* Drops the solid background line from passing through the middle of drawings */
     .timeline-stem-line {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        display: block !important;
-        top: 20px;
-        bottom: 20px;
+        display: none !important;
     }
     
+    .visual-timeline-container {
+        margin-top: 40px;
+        gap: 0px !important; 
+    }
+
     .timeline-row, .row-left-img, .row-right-img {
         flex-direction: column !important;
         align-items: center !important;
         width: 100% !important;
         padding-left: 0 !important;
         position: relative;
-        margin-bottom: 40px;
-        gap: 12px;
+        margin-bottom: 0 !important;
+        padding-bottom: 60px; /* Spacing cushion framing the segmented lines */
+    }
+    
+    /* Adds a clean timeline branch segment *only* below the time badge bubbles */
+    .timeline-row:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        background-color: #a3b59e;
+        top: 40px; /* Starts exactly behind the center of the bubble capsule */
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
     }
     
     .timeline-col-node {
@@ -612,49 +623,66 @@ body {
         width: 100% !important;
         display: flex !important;
         justify-content: center !important;
-        z-index: 10;
-        margin-bottom: 4px;
+        z-index: 10 !important;
+        margin-bottom: 20px;
     }
     
+    /* Micro-scaled time pill for mobile device viewports */
     .time-pill-badge {
         font-size: 0.95rem;
-        padding: 6px 14px;
+        padding: 8px 18px;
+        background-color: #ffffff !important;
+        border: 1px solid #b8c7b4 !important;
+        border-radius: 30px !important;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05) !important;
+        display: inline-block !important;
     }
 
+    /* Keeps backgrounds fully clear and transparent around drawings */
     .timeline-col-text, .timeline-col-media {
         width: 100% !important;
         display: flex !important;
         justify-content: center !important;
+        background-color: transparent !important; /* Fixed: Clears out all solid background box conflicts */
+        position: relative;
+        z-index: 5;
     }
 
-    /* Standardizes the stack order cleanly: 1. Time Badge -> 2. Text Content -> 3. Graphic Photo */
+    /* Forces sequence flow: 1. Time Badge -> 2. Text Titles -> 3. Graphic Illustration */
     .timeline-col-text {
         order: 1 !important; 
         margin-top: 0 !important;    
-        margin-bottom: 4px;
+        margin-bottom: 15px;
+        background-color: transparent !important;
     }
     
     .timeline-col-media {
         order: 2 !important; 
+        background-color: transparent !important;
     }
 
     .timeline-text-content {
         text-align: center !important;
         padding: 0 !important;
         align-items: center !important;
+        background-color: transparent !important;
     }
     
     .timeline-text-content h3 {
-        font-size: 1.6rem;
+        font-size: 1.75rem;
+        font-family: var(--font-serif);
+        color: #2c3b29;
     }
 
     .timeline-img-wrapper {
         justify-content: center !important;
         padding: 0 !important;
+        background-color: transparent !important;
     }
     
     .timeline-graphic {
         max-width: 190px; 
+        filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.05));
     }
 }
 
