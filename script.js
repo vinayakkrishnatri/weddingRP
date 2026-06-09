@@ -67,22 +67,23 @@ setInterval(function() {
 
 
 /* ==========================================================================
-   3. INTERACTIVE GOLD METALLIC SCRATCH REVEAL MODULE ENGINE (UNIFIED BLOCK)
+   3. INTERACTIVE GOLD METALLIC SCRATCH REVEAL MODULE ENGINE (MOBILE SECURE)
    ========================================================================== */
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('scratch-canvas');
-    if (!canvas) return;
+    if (!canvas) return; // Safely exits if the element isn't ready, preventing script crashes
 
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     let isDrawing = false;
     
     /**
      * Dynamically handles scaling for the larger combined card canvas frame.
+     * Detects mobile responsive parameters to gracefully scale text bounds.
      */
     window.initScratchCanvas = function() {
-        if (!canvas.offsetParent) return; 
-        
         const rect = canvas.getBoundingClientRect();
+        if (rect.width === 0 || rect.height === 0) return; // Wait if card dimensions aren't unpacked
+        
         canvas.width = rect.width;
         canvas.height = rect.height;
         
@@ -96,21 +97,31 @@ window.addEventListener('DOMContentLoaded', () => {
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
-        // FIX: Larger, clearer typography layout settings for the canvas overlay text
+        // Configuration engine adjusting font scaling rules dynamically by screen widths
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        let fontConfig = 'italic 20px Cormorant Garamond';
+        let instructionText = 'Scratch here to reveal the wedding countdown ✨';
+        
+        // RESPONSIVE SCREEN ADAPTER: Shrinks text and handles boundary wraps on mobile viewports
+        if (viewportWidth <= 500) {
+            fontConfig = 'italic 15px Cormorant Garamond'; // Dropped to 15px to protect box boundaries
+            instructionText = 'Scratch here to reveal the countdown ✨'; // Shortened slightly to contain trailing ends
+        }
+        
         ctx.fillStyle = '#ffffff';
-        ctx.font = 'italic 20px Cormorant Garamond'; // Bumped up from 16px to 20px
+        ctx.font = fontConfig;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        // Drops an elegant shadow under the canvas instruction string for readability
+        // Drops an elegant shadow under the canvas instruction string for high contrast readability
         ctx.shadowColor = 'rgba(139, 99, 23, 0.4)';
         ctx.shadowBlur = 4;
         ctx.shadowOffsetX = 1;
         ctx.shadowOffsetY = 2;
         
-        ctx.fillText('Scratch here to reveal the wedding countdown ✨', canvas.width / 2, canvas.height / 2);
+        ctx.fillText(instructionText, canvas.width / 2, canvas.height / 2);
         
-        // Clear shadow parameters so it doesn't bleed into eraser strokes
+        // Clear shadow parameters completely so it doesn't bleed into structural eraser stroke tracks
         ctx.shadowColor = 'transparent';
         ctx.shadowBlur = 0;
         ctx.shadowOffsetX = 0;
@@ -132,7 +143,7 @@ window.addEventListener('DOMContentLoaded', () => {
         
         ctx.globalCompositeOperation = 'destination-out';
         ctx.beginPath();
-        ctx.arc(x, y, 26, 0, Math.PI * 2); // Scratch diameter widened to 26px for smoother reveals
+        ctx.arc(x, y, 22, 0, Math.PI * 2);
         ctx.fill();
         
         checkRevealPercentage();
@@ -149,11 +160,10 @@ window.addEventListener('DOMContentLoaded', () => {
         
         const percentageCleared = (clearedPixels / (pixels.length / 32)) * 100;
         
-        // Clean snap fade-away when 45% of the overall combined area is scratched
         if (percentageCleared > 45) {
-            canvas.style.transition = 'opacity 0.7s ease-out';
+            canvas.style.transition = 'opacity 0.6s ease-out';
             canvas.style.opacity = '0';
-            setTimeout(() => canvas.remove(), 700);
+            setTimeout(() => canvas.remove(), 600); // Purge layout cleanly from DOM structure
         }
     }
 
