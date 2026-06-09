@@ -210,7 +210,6 @@ body {
 .parentage { font-size: 1rem; line-height: 1.6; color: #555; margin: 12px 0 28px 0; font-weight: 500; }
 .with-separator { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; margin-bottom: 28px; color: #444; }
 
-
 /* ==========================================================================
    CARD 2: UNIFIED TIMING & SCRATCH CORE MODULE
    ========================================================================== */
@@ -452,7 +451,7 @@ body {
 
 
 /* ==========================================================================
-   CARD 4: TIMELINE RENDERING TRACK SYSTEM
+   CARD 4: TIMELINE RENDERING TRACK SYSTEM (OPTIMIZED GRAPHICS)
    ========================================================================== */
 .schedule-timeline-section {
     background-color: #e3ebe0;
@@ -467,7 +466,7 @@ body {
 }
 
 .timeline-body { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 20px; }
-.visual-timeline-container { position: relative; width: 100%; margin-top: 60px; display: flex; flex-direction: column; gap: 20px; }
+.visual-timeline-container { position: relative; width: 100%; margin-top: 60px; display: flex; flex-direction: column; gap: 40px; }
 
 .timeline-stem-line {
     position: absolute;
@@ -487,43 +486,121 @@ body {
     width: 100%;
     position: relative;
     z-index: 5;
-    min-height: 250px;
+    min-height: 200px;
 }
 
 .timeline-col-media, .timeline-col-text { width: 42%; flex-shrink: 0; flex-grow: 0; }
 .timeline-col-node { width: 16%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; flex-grow: 0; }
 
+/* FIX: Significantly enlarged the time stamp badges across all viewports */
 .time-pill-badge {
     background-color: #ffffff;
     color: #4a5547;
-    font-size: 0.85rem;
+    font-size: 1.15rem; /* Bumped from 0.85rem for standout premium clarity */
     font-weight: 600;
-    padding: 6px 16px;
+    padding: 10px 22px; /* Increased padding framework footprint */
     border-radius: 30px;
     white-space: nowrap;
     border: 1px solid #b8c7b4;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    font-family: var(--font-serif);
+    letter-spacing: 0.5px;
 }
 
 .timeline-text-content { display: flex; flex-direction: column; justify-content: center; }
 .timeline-text-content h3 { font-family: var(--font-serif); font-size: 1.75rem; color: #2c3b29; font-weight: 600; margin-bottom: 6px; line-height: 1.2; }
 .timeline-text-content .event-tagline { font-size: 1.05rem; font-style: italic; color: var(--wedding-pink); font-weight: 500; }
 
-.align-left { text-align: left; padding-left: 20px; }
-.align-right { text-align: right; padding-right: 20px; }
+.align-left { text-align: left; padding-left: 30px; }
+.align-right { text-align: right; padding-right: 30px; }
 
 .timeline-img-wrapper { width: 100%; display: flex; align-items: center; }
-.row-left-img .timeline-img-wrapper { justify-content: flex-end; padding-right: 20px; }
-.row-right-img .timeline-img-wrapper { justify-content: flex-start; padding-left: 20px; }
+.row-left-img .timeline-img-wrapper { justify-content: flex-end; padding-right: 30px; }
+.row-right-img .timeline-img-wrapper { justify-content: flex-start; padding-left: 30px; }
 
+/* FIX: Scaled down the illustration frame boundaries so photos sit subtly */
 .timeline-graphic {
     width: 100%;
-    max-width: 320px; 
+    max-width: 220px; /* Reduced from 320px to make them elegantly compact */
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.06));
 }
 
+
+/* ==========================================================================
+   MOBILE DESIGN ENGINE: TARGETED FLEX RESPONSIVE RE-ORDERING
+   ========================================================================== */
+@media (max-width: 768px) {
+    .timeline-stem-line {
+        left: 35px;
+        transform: none;
+        display: none; /* Hiding the straight line on mobile creates cleaner card stacks */
+    }
+    
+    .timeline-row {
+        width: 100% !important;
+        min-height: auto;
+        margin-bottom: 50px;
+        padding: 0;
+        display: flex !important;
+    }
+    
+    .timeline-col-media, .timeline-col-text, .timeline-col-node {
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    /* --- ARCHITECTURE A: BARAAT & VIDAI STACK ENGINE --- */
+    .mobile-stack-photo-middle {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px;
+    }
+
+    /* Explicit CSS order parameter shifting blocks precisely around the canvas */
+    .mobile-stack-photo-middle .timeline-col-node { order: 1 !important; }  /* 1st: Time Stamp */
+    .mobile-stack-photo-middle .timeline-col-media { order: 2 !important; } /* 2nd: Photo Graphic */
+    .mobile-stack-photo-middle .timeline-col-text { order: 3 !important; }  /* 3rd: Text Title Block */
+
+    .mobile-stack-photo-middle .timeline-text-content {
+        padding-left: 10px !important;
+    }
+    
+    .mobile-stack-photo-middle .timeline-img-wrapper {
+        justify-content: flex-start !important;
+        padding-left: 10px !important;
+        margin: 10px 0;
+    }
+
+    /* --- ARCHITECTURE B: JAIMALA FIXED IMMERSION LINK --- */
+    .mobile-keep-side-by-side {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px;
+    }
+
+    /* Maintains standard text adjacent tracking mapping rules */
+    .mobile-keep-side-by-side .timeline-col-node { order: 1 !important; }  /* 1st: Time Stamp */
+    .mobile-keep-side-by-side .timeline-col-text { order: 2 !important; }  /* 2nd: Title sitting neatly underneath */
+    .mobile-keep-side-by-side .timeline-col-media { order: 3 !important; } /* 3rd: Photo Graphic at base */
+
+    .mobile-keep-side-by-side .timeline-text-content {
+        padding-right: 0 !important;
+        padding-left: 10px !important;
+        text-align: left !important;
+    }
+
+    .mobile-keep-side-by-side .timeline-img-wrapper {
+        justify-content: flex-start !important;
+        padding-left: 10px !important;
+        margin-top: 10px;
+    }
+    
+    .timeline-graphic {
+        max-width: 180px; /* Micro-scaled down even tighter for perfect mobile fits */
+    }
+}
 
 /* --- CARD 5: VENUE INFRASTRUCTURE INTERACTIVE MAP --- */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
@@ -549,77 +626,75 @@ body {
 
 
 /* ==========================================================================
-   MOBILE MEDIA VIEWPORTS BREAKPOINT BALANCERS
+   MOBILE DESIGN ENGINE: TARGETED FLEX RESPONSIVE RE-ORDERING
    ========================================================================== */
 @media (max-width: 768px) {
-    .white-bg::before {
-        background-size: 160% auto; /* Scales canvas on mobile displays so vectors feel prominent */
-    }
-
-    .gallery-card-row, .wide-card-photo-flex {
-        flex-direction: column !important;
-        align-items: center;
-        gap: 35px;
-    }
-    
-    .elegant-story-card {
-        width: 100%;
-        min-height: auto;
-    }
-    
-    .inline-photo-frame {
-        width: 260px;
-        height: 260px;
-    }
-    
-    .elegant-wide-story-card {
-        padding: 40px 20px 0 20px;
-    }
-    
-    .card-scenery-footer {
-        width: calc(100% + 40px);
-        margin-left: -20px;
-        height: auto;
-    }
-
     .timeline-stem-line {
-        left: 45px;
+        left: 35px;
         transform: none;
+        display: none; /* Hiding the straight line on mobile creates cleaner card stacks */
     }
+    
     .timeline-row {
-        flex-direction: column !important;
-        align-items: flex-start;
-        gap: 12px;
+        width: 100% !important;
         min-height: auto;
-        margin-bottom: 45px;
-        padding-left: 90px;
+        margin-bottom: 50px;
+        padding: 0;
+        display: flex !important;
     }
-    .timeline-row.row-right-img {
-        flex-direction: column !important;
-    }
+    
     .timeline-col-media, .timeline-col-text, .timeline-col-node {
         width: 100% !important;
         text-align: left !important;
     }
-    .timeline-col-node {
-        position: absolute;
-        left: 15px;
-        top: 0;
-        width: auto !important;
-        padding: 0;
-    }
-    .timeline-text-content { padding: 0 !important; }
-    .timeline-img-wrapper { padding: 0 !important; justify-content: flex-start !important; }
-    .timeline-graphic { max-width: 260px; margin-top: 10px; }
-}
 
-@media (max-width: 500px) {
-    .main-closed-envelope { width: 92vw; }
-    .invite-headline { font-size: 3.5rem; }
-    .groom-name, .bride-name { font-size: 3.8rem; }
-    .section-title { font-size: 3.2rem; }
-    #timer { gap: 8px; }
-    .time-box { width: 74px; padding: 14px 2px; }
-    .time-box span { font-size: 1.6rem; }
-    .interactive-map-box { height: 200px; max-width: 90vw; }
+    /* --- ARCHITECTURE A: BARAAT & VIDAI STACK ENGINE --- */
+    .mobile-stack-photo-middle {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px;
+    }
+
+    /* Explicit CSS order parameter shifting blocks precisely around the canvas */
+    .mobile-stack-photo-middle .timeline-col-node { order: 1 !important; }  /* 1st: Time Stamp */
+    .mobile-stack-photo-middle .timeline-col-media { order: 2 !important; } /* 2nd: Photo Graphic */
+    .mobile-stack-photo-middle .timeline-col-text { order: 3 !important; }  /* 3rd: Text Title Block */
+
+    .mobile-stack-photo-middle .timeline-text-content {
+        padding-left: 10px !important;
+    }
+    
+    .mobile-stack-photo-middle .timeline-img-wrapper {
+        justify-content: flex-start !important;
+        padding-left: 10px !important;
+        margin: 10px 0;
+    }
+
+    /* --- ARCHITECTURE B: JAIMALA FIXED IMMERSION LINK --- */
+    .mobile-keep-side-by-side {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px;
+    }
+
+    /* Maintains standard text adjacent tracking mapping rules */
+    .mobile-keep-side-by-side .timeline-col-node { order: 1 !important; }  /* 1st: Time Stamp */
+    .mobile-keep-side-by-side .timeline-col-text { order: 2 !important; }  /* 2nd: Title sitting neatly underneath */
+    .mobile-keep-side-by-side .timeline-col-media { order: 3 !important; } /* 3rd: Photo Graphic at base */
+
+    .mobile-keep-side-by-side .timeline-text-content {
+        padding-right: 0 !important;
+        padding-left: 10px !important;
+        text-align: left !important;
+    }
+
+    .mobile-keep-side-by-side .timeline-img-wrapper {
+        justify-content: flex-start !important;
+        padding-left: 10px !important;
+        margin-top: 10px;
+    }
+    
+    .timeline-graphic {
+        max-width: 180px; /* Micro-scaled down even tighter for perfect mobile fits */
+    }
 }
