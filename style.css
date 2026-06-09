@@ -464,7 +464,7 @@ body {
 .timeline-body { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 20px; }
 .visual-timeline-container { position: relative; width: 100%; margin-top: 60px; display: flex; flex-direction: column; gap: 60px; }
 
-/* Desktop explicit central line background track */
+/* Desktop explicitly centered central vertical line background track */
 .timeline-stem-line {
     position: absolute;
     width: 2px;
@@ -583,7 +583,7 @@ body {
     }
 
     /* --- CARD 4 TIMELINE STACK & CLEAN BUBBLE CONNECTORS --- */
-    /* Drops the solid background line from passing through the middle of drawings */
+    /* Drops the solid full background line from passing through the middle of drawings */
     .timeline-stem-line {
         display: none !important;
     }
@@ -643,7 +643,7 @@ body {
         width: 100% !important;
         display: flex !important;
         justify-content: center !important;
-        background-color: transparent !important; /* Fixed: Clears out all solid background box conflicts */
+        background-color: transparent !important; /* Cleans up all solid container background box conflicts */
         position: relative;
         z-index: 5;
     }
