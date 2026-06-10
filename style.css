@@ -26,6 +26,17 @@ body {
     scroll-behavior: smooth;
 }
 
+/* ---Hindi --- */
+.hindi-mantra{
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1.5rem;
+    color: #b08435;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+
 /* --- ANIMATED STEMLESS FLOWER FLURRY --- */
 .global-flower-rain {
     position: fixed;
