@@ -25,13 +25,21 @@
         <span class="petal p8">🏵️</span>
     </div>
 
-    <section id="cover-page">
-        <div id="envelope-trigger" class="envelope-wrapper">
-            <img src="assets/closed-envelope.png" alt="Wedding Envelope" class="main-closed-envelope">
+    <section id="cover-page" class="sliding-door-envelope">
+        
+        <div id="left-door" class="envelope-panel left-panel">
+            <div class="ornate-corner-decoration top-left-motif"></div>
+            <div class="ornate-corner-decoration bottom-left-motif"></div>
         </div>
-        <div class="welcome-text-container">
+        
+        <div id="right-door" class="envelope-panel right-panel">
+            <div class="ornate-corner-decoration top-right-motif"></div>
+            <div class="ornate-corner-decoration bottom-right-motif"></div>
+        </div>
+
+        <div id="envelope-trigger" class="welcome-text-container interactive-seal-lock">
             <h1 class="invite-headline">You're Invited</h1>
-            <p class="invite-subline">Tap the envelope to open your invitation</p>
+            <p class="invite-subline">Tap here to open your invitation</p>
         </div>
     </section>
 
@@ -59,9 +67,7 @@
 
         <section class="card-section mint-flat-bg">
             <div class="card-body container-chrono-lock">
-                
                 <div class="scratch-card-container multi-reveal-frame">
-                    
                     <div class="scratch-reveal-base-content combined-layout-base">
                         <div class="date-reveal-segment">
                             <p class="std-title">SAVE THE DATE</p>
@@ -75,20 +81,19 @@
                             <div class="time-box"><span id="seconds">00</span><p>SECONDS</p></div>
                         </div>
                     </div>
-                    
                     <canvas id="scratch-canvas" class="scratch-canvas-overlay"></canvas>
                 </div>
-
             </div>
         </section>
 
         <section class="card-section cream-flat-bg story-section-clean">
-            <div class="card-body wide-story-body">
+            <div class="global-section-header">
                 <h2 class="section-title">Our Journey & Story</h2>
                 <p class="section-subtitle">Placeholder line for our story section subtitle description goes here</p>
-                
+            </div>
+
+            <div class="wide-story-body">
                 <div class="gallery-card-row">
-                    
                     <div class="elegant-story-card groom-allahabad">
                         <div class="card-scenery-header">
                             <img src="assets/allahabad_bg.png" alt="Allahabad" class="header-scenery-img">
@@ -110,7 +115,6 @@
                         <h3>The Bride</h3>
                         <p class="bio-text">Placeholder details about Priyanka's journey, passions, and spirit. You can freely edit this text directly inside your HTML paragraph block.</p>
                     </div>
-
                 </div>
 
                 <div class="elegant-wide-story-card">
@@ -132,16 +136,16 @@
                         <img src="assets/iit_kanpur_bg.png" alt="IIT Kanpur Campus" class="footer-scenery-img">
                     </div>
                 </div>
-
             </div>
         </section>
 
         <section class="card-section mint-flat-bg">
-            <div class="timeline-body">
-                
+            <div class="global-section-header">
                 <h2 class="section-title">Events Schedule</h2>
                 <p class="section-subtitle">Join us in celebrating each beautiful ritual</p>
-                
+            </div>
+
+            <div class="timeline-body">
                 <div class="visual-timeline-container">
                     <div class="timeline-stem-line"></div>
 
@@ -195,7 +199,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
