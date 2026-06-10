@@ -452,7 +452,7 @@ body {
 .time-pill-badge {
     background-color: #ffffff !important;
     color: #4a5547;
-    font-size: 1.15rem;
+    font-size: 2.0rem;
     font-weight: 600;
     padding: 10px 22px;
     border-radius: 30px;
@@ -526,7 +526,7 @@ body {
     }
     
     .timeline-col-node { position: relative !important; width: 100% !important; display: flex !important; justify-content: center !important; z-index: 10 !important; margin-bottom: 15px; }
-    .time-pill-badge { font-size: 1.3rem; padding: 8px 18px; background-color: #ffffff !important; border: 1px solid #b8c7b4 !important; border-radius: 30px !important; display: inline-block !important; }
+    .time-pill-badge { font-size: 2.0rem; padding: 8px 18px; background-color: #ffffff !important; border: 1px solid #b8c7b4 !important; border-radius: 30px !important; display: inline-block !important; }
 
     .timeline-col-text, .timeline-col-media { width: 100% !important; display: flex !important; justify-content: center !important; background-color: transparent !important; }
     .timeline-col-text { order: 1 !important; margin-bottom: 15px; }
