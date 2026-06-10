@@ -1,35 +1,38 @@
 /* ==========================================================================
-   1. DIGITAL ENVELOPE OPENING ENGINE & SOUNDTRACK INITIALIZATION
+   1. AUTOMATIC SLIDING BOX PANEL ENVELOPE CONTROLLER
    ========================================================================== */
 function openInvitation() {
     const music = document.getElementById('bg-music');
     if (music) {
         music.volume = 0.7;
-        music.play().catch(err => console.log("Audio pipeline safely deferred:", err));
+        music.play().catch(err => console.log("Audio pipeline securely ready:", err));
     }
 
-    const cover = document.getElementById('cover-page');
+    const leftDoor = document.getElementById('left-door');
+    const rightDoor = document.getElementById('right-door');
+    const sealTrigger = document.getElementById('envelope-trigger');
     const mainContent = document.getElementById('main-content');
+    const coverPage = document.getElementById('cover-page');
     
-    if (cover && mainContent) {
-        cover.style.opacity = '0';
+    if (leftDoor && rightDoor && sealTrigger) {
+        leftDoor.classList.add('open-slide-left');
+        rightDoor.classList.add('open-slide-right');
+        sealTrigger.classList.add('fade-out-seal');
         
         setTimeout(function() {
-            cover.classList.add('hidden');
-            mainContent.classList.remove('hidden');
-            
-            /* CRITICAL LAYOUT RE-RENDER: Recalculates canvas dimensions 
-               the split second the hidden wrapper falls away */
-            if (typeof window.initScratchCanvas === 'function') {
-                window.initScratchCanvas();
+            if (mainContent && coverPage) {
+                coverPage.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+                
+                if (typeof window.initScratchCanvas === 'function') {
+                    window.initScratchCanvas();
+                }
+                window.scrollTo({ top: 0, behavior: 'instant' });
             }
-            
-            window.scrollTo({ top: 0, behavior: 'instant' });
-        }, 800);
+        }, 1000);
     }
 }
 
-// Secure early binding for the envelope click trigger
 document.addEventListener('DOMContentLoaded', () => {
     const envelopeTrigger = document.getElementById('envelope-trigger');
     if (envelopeTrigger) {
@@ -39,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ==========================================================================
-   2. LIVE CHRONO WEDDING COUNTDOWN TIMER CLOCK
+   2. LIVE COUNTDOWN TIMER CLOCK CALCULATOR
    ========================================================================== */
 const weddingTargetTime = new Date("July 7, 2026 16:00:00").getTime();
 
@@ -67,45 +70,38 @@ setInterval(function() {
 
 
 /* ==========================================================================
-   3. INTERACTIVE GOLD METALLIC SCRATCH REVEAL MODULE ENGINE (MOBILE SECURE)
+   3. MOBILE-SECURE INTERACTIVE SCRATCH REVEAL CANCES ENGINE
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('scratch-canvas');
-    if (!canvas) return; // Safely exits if the element isn't ready, preventing script crashes
+    if (!canvas) return;
 
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     let isDrawing = false;
     
-    /**
-     * Dynamically handles scaling for the larger combined card canvas frame.
-     * Detects mobile responsive parameters to gracefully scale text bounds.
-     */
     window.initScratchCanvas = function() {
         const rect = canvas.getBoundingClientRect();
-        if (rect.width === 0 || rect.height === 0) return; // Wait if card dimensions aren't unpacked
+        if (rect.width === 0 || rect.height === 0) return; 
         
         canvas.width = rect.width;
         canvas.height = rect.height;
         
-        // Premium textured gold layout gradient matrix
         const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
         gradient.addColorStop(0, '#e5c07b');
         gradient.addColorStop(0.3, '#dca134');
-        gradient.addColorStop(0.7, '#f3d393'); // Adds an inner metallic sheen line
+        gradient.addColorStop(0.7, '#f3d393'); 
         gradient.addColorStop(1, '#b38628');
         
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
-        // Configuration engine adjusting font scaling rules dynamically by screen widths
         const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
         let fontConfig = 'italic 20px Cormorant Garamond';
         let instructionText = 'Scratch here to reveal the wedding countdown ✨';
         
-        // RESPONSIVE SCREEN ADAPTER: Shrinks text parameters on smaller viewports
         if (viewportWidth <= 500) {
-            fontConfig = 'italic 15px Cormorant Garamond'; // Dropped to 15px to protect box boundaries
-            instructionText = 'Scratch here to reveal the countdown ✨'; // Shortened slightly to contain trailing ends
+            fontConfig = 'italic 15px Cormorant Garamond'; 
+            instructionText = 'Scratch here to reveal the countdown ✨'; 
         }
         
         ctx.fillStyle = '#ffffff';
