@@ -42,13 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ==========================================================================
-   2. LIVE COUNTDOWN TIMER CLOCK CALCULATOR
+   2. ACCURATE CHRONO COUNTDOWN CLOCK ENGINE (TARGETING 7 JULY 0:00 AM)
    ========================================================================== */
-const weddingTargetTime = new Date("July 7, 2026 16:00:00").getTime();
+// Standardizes the wedding target to the exact start of July 7, 2026 (0:00 AM IST)
+const weddingTargetTime = new Date("2026-07-07T00:00:00+05:30").getTime();
 
-setInterval(function() {
+const countdownInterval = setInterval(function() {
     const timeNow = new Date().getTime();
     const metricsDelta = weddingTargetTime - timeNow;
+
+    // If the countdown is complete, gracefully lock display metrics at zero
+    if (metricsDelta <= 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+    }
 
     const computeDays = Math.floor(metricsDelta / (1000 * 60 * 60 * 24));
     const computeHours = Math.floor((metricsDelta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -67,7 +78,6 @@ setInterval(function() {
         secondsEl.innerText = String(computeSeconds).padStart(2, '0');
     }
 }, 1000);
-
 
 /* ==========================================================================
    3. MOBILE-SECURE INTERACTIVE SCRATCH REVEAL CANCES ENGINE
