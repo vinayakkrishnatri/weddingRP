@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let fontConfig = 'italic 20px Cormorant Garamond';
         let instructionText = 'Scratch here to reveal the wedding countdown ✨';
         
-        // RESPONSIVE SCREEN ADAPTER: Shrinks text and handles boundary wraps on mobile viewports
+        // RESPONSIVE SCREEN ADAPTER: Shrinks text parameters on smaller viewports
         if (viewportWidth <= 500) {
             fontConfig = 'italic 15px Cormorant Garamond'; // Dropped to 15px to protect box boundaries
             instructionText = 'Scratch here to reveal the countdown ✨'; // Shortened slightly to contain trailing ends
@@ -113,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        // Drops an elegant shadow under the canvas instruction string for high contrast readability
         ctx.shadowColor = 'rgba(139, 99, 23, 0.4)';
         ctx.shadowBlur = 4;
         ctx.shadowOffsetX = 1;
@@ -121,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         ctx.fillText(instructionText, canvas.width / 2, canvas.height / 2);
         
-        // Clear shadow parameters completely so it doesn't bleed into structural eraser stroke tracks
         ctx.shadowColor = 'transparent';
         ctx.shadowBlur = 0;
         ctx.shadowOffsetX = 0;
@@ -163,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (percentageCleared > 45) {
             canvas.style.transition = 'opacity 0.6s ease-out';
             canvas.style.opacity = '0';
-            setTimeout(() => canvas.remove(), 600); // Purge layout cleanly from DOM structure
+            setTimeout(() => canvas.remove(), 600); 
         }
     }
 
