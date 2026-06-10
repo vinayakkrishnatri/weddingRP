@@ -61,78 +61,156 @@ body {
     100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
 }
 
-/* --- OVERLAY ENVELOPE SHIELD SHEET --- */
-#cover-page {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--bg-mint);
+
+/* ==========================================================================
+   REVOLUTION LUXURY COATED DOORS SYSTEM (NO EXTRA BOXES ENGINE)
+   ========================================================================== */
+.sliding-door-envelope {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
     overflow: hidden;
-    text-align: center;
-    padding: 20px;
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
-}
-
-.envelope-wrapper {
-    cursor: pointer;
-    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: #362923; /* Deep ambient contrast underlay shadow */
 }
 
-.envelope-wrapper:hover {
-    transform: scale(1.03);
+/* THE ABSOLUTE REMEDY: Styled directly on panels to block out empty margins completely */
+.envelope-panel {
+    position: absolute;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    z-index: 210;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    
+    /* Luxury Cream-Gold-Pinkish Silk Blend Finish */
+    background: linear-gradient(135deg, #fdfaf2 0%, #f6e6dc 45%, #edd2c4 75%, #dfbfae 100%);
+    
+    /* Native traditional Indian wedding card layout lace framework pattern overlay */
+    background-image: 
+        radial-gradient(circle at center, transparent 15%, rgba(207, 161, 76, 0.02) 16%),
+        repeating-linear-gradient(45deg, rgba(207, 161, 76, 0.05) 0px, rgba(207, 161, 76, 0.05) 1px, transparent 1px, transparent 12deg),
+        repeating-linear-gradient(-45deg, rgba(207, 161, 76, 0.05) 0px, rgba(207, 161, 76, 0.05) 1px, transparent 1px, transparent 12deg);
+    background-size: 30px 30px;
+    box-shadow: inset 0 0 100px rgba(74, 59, 52, 0.12);
 }
 
-.main-closed-envelope {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.12));
+.left-panel {
+    left: 0;
+    justify-content: flex-end;
+    border-right: 1.5px solid #dca134; /* Brilliant central gold card divide seam */
+    box-shadow: inset -30px 0 50px rgba(0,0,0,0.08), inset 0 0 100px rgba(74, 59, 52, 0.12);
 }
 
-.welcome-text-container {
-    width: 100%;
+.right-panel {
+    right: 0;
+    justify-content: flex-start;
+    box-shadow: inset 30px 0 50px rgba(0,0,0,0.08), inset 0 0 100px rgba(74, 59, 52, 0.12);
+}
+
+/* Filigree corner patterns directly mapped to the full panels */
+.ornate-corner-decoration {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(176, 132, 53, 0.3);
+    pointer-events: none;
+}
+.ornate-corner-decoration::before {
+    content: '✿';
+    position: absolute;
+    color: rgba(176, 132, 53, 0.4);
+    font-size: 1rem;
+}
+
+.top-left-motif { top: 30px; left: 30px; border-right: none; border-bottom: none; }
+.top-left-motif::before { right: -6px; bottom: -6px; }
+
+.bottom-left-motif { bottom: 30px; left: 30px; border-right: none; border-top: none; }
+.bottom-left-motif::before { right: -6px; top: -6px; }
+
+.top-right-motif { top: 30px; right: 30px; border-left: none; border-bottom: none; }
+.top-right-motif::before { left: -6px; bottom: -6px; }
+
+.bottom-right-motif { bottom: 30px; right: 30px; border-left: none; border-top: none; }
+.bottom-right-motif::before { left: -6px; top: -6px; }
+
+
+/* ==========================================================================
+   THE FLOATING CENTER TEXT CARD (PREMIUM RESPLENDENT CURSIVE LOGO ENGINE)
+   ========================================================================== */
+.interactive-seal-lock {
+    position: relative;
+    z-index: 230;
+    cursor: pointer;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: #fdfaf2; 
+    padding: 45px 65px;
+    border-radius: 24px; 
+    border: 1px solid #cfa14c; 
+    box-shadow: 0 25px 65px rgba(54, 41, 35, 0.25);
+    animation: gentlePulseAir 3s infinite ease-in-out;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
 }
 
+.interactive-seal-lock:hover { transform: scale(1.02); }
+
+/* RESOLVED EMBOSS: Upgraded Headline to premium hand-written cursive font logic */
 .invite-headline {
-    font-family: var(--font-script);
-    font-size: 4.5rem;
-    color: #4b5948;
-    font-weight: 400;
-    line-height: 1.1;
+    font-family: var(--font-script) !important; /* Forces premium cursive flourish mapping */
+    font-size: 5rem !important; /* Blown up to display gorgeous trailing ends */
+    color: #4a3b34 !important; 
+    font-weight: 400 !important;
+    line-height: 1;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
 }
 
 .invite-subline {
-    font-size: 1.15rem;
-    font-style: italic;
-    color: #5d6d5a;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #b08435; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-top: 1px solid #ecdcd3;
+    padding-top: 14px;
     margin-top: 10px;
-    letter-spacing: 0.5px;
+    width: 100%;
 }
 
-.hidden { display: none !important; }
+/* ANIMATION MATRIX MAPS */
+.open-slide-left { transform: translateX(-50vw) !important; }
+.open-slide-right { transform: translateX(50vw) !important; }
+.fade-out-seal { opacity: 0 !important; transform: scale(0.9) !important; pointer-events: none !important; }
 
-/* --- SECTIONS CORE FRAMEWORK --- */
+@keyframes gentlePulseAir {
+    0% { transform: scale(1); box-shadow: 0 25px 65px rgba(54, 41, 35, 0.25); }
+    50% { transform: scale(1.03); box-shadow: 0 30px 80px rgba(184, 137, 48, 0.22); }
+    100% { transform: scale(1); box-shadow: 0 25px 65px rgba(54, 41, 35, 0.25); }
+}
+
+
+/* ==========================================================================
+   GLOBAL FRAMEWORK FIX: LOCKED CENTERED INNER PAGE HEADINGS
+   ========================================================================== */
 .card-section {
     min-height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column !important; /* HARD BLOCK VERTICAL DOWN-FLOW STACKING */
     justify-content: center;
     align-items: center;
     padding: 80px 24px;
@@ -143,32 +221,45 @@ body {
     width: 100%;
     max-width: 540px;
     text-align: center;
+    margin: 0 auto;
 }
 
-.section-title {
-    font-family: var(--font-script);
-    font-size: 3.8rem;
-    color: var(--wedding-pink);
-    font-weight: 400;
-    line-height: 1.1;
-    text-align: center;
+/* ABSOLUTE RIGIDITY HEADING FIX */
+.global-section-header {
+    width: 100% !important;
+    max-width: 600px !important; 
+    text-align: center !important;
+    margin: 0 auto 40px auto !important; 
+    display: block !important;
+    position: relative;
+    z-index: 100 !important;
 }
 
-.section-subtitle {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--text-muted);
-    margin-top: 5px;
-    margin-bottom: 40px;
-    text-align: center;
+.global-section-header .section-title {
+    font-family: var(--font-script) !important;
+    font-size: 3.8rem !important;
+    color: var(--wedding-pink) !important;
+    font-weight: 400 !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
 }
+
+.global-section-header .section-subtitle {
+    font-size: 1.1rem !important;
+    font-style: italic !important;
+    color: var(--text-muted) !important;
+    margin-top: 6px !important;
+    text-align: center !important;
+}
+
+.cream-flat-bg { background-color: var(--card-cream) !important; }
+.mint-flat-bg { background-color: var(--card-mint) !important; }
+.hidden { display: none !important; }
 
 
 /* ==========================================================================
-   TARGETED BACKGROUND HOOKS: PALACE WATERMARK VS SOLID FLAT COLOR BLOCKS
+   PALACE ARCH WATERMARK LAYERS (CARDS 1 & 5 ONLY)
    ========================================================================== */
-
-/* Only applies the palace image background filter strictly to Card 1 and Card 5 */
 .palace-watermark-bg {
     background-color: var(--card-cream); 
     position: relative;
@@ -179,8 +270,7 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     width: 100%;
     height: 100%;
     background-image: url('assets/palace_bg.png');
@@ -192,21 +282,6 @@ body {
     z-index: 1;
 }
 
-.palace-watermark-bg .card-body {
-    position: relative;
-    z-index: 5;
-}
-
-/* PURE ALTERNATING FLAT COLORS: No watermarks on Cards 2, 3, and 4 */
-.cream-flat-bg {
-    background-color: var(--card-cream) !important;
-}
-
-.mint-flat-bg {
-    background-color: var(--card-mint) !important;
-}
-
-/* Typography elements */
 .ganesha-icon { width: 80px; height: auto; margin-bottom: 12px; }
 .mantra { font-size: 0.95rem; letter-spacing: 2px; color: #666; margin-bottom: 35px; }
 .invitation-prose { font-size: 1.15rem; line-height: 1.7; margin-bottom: 40px; color: var(--text-muted); }
@@ -223,12 +298,9 @@ body {
 
 
 /* ==========================================================================
-   CARD 2: UNIFIED SCRATCH FOIL CONTAINER
+   CARD 2: SCRATCH CANVAS CLOCK FRAME
    ========================================================================== */
-.container-chrono-lock {
-    max-width: 500px !important;
-    width: 100%;
-}
+.container-chrono-lock { max-width: 500px !important; }
 
 .multi-reveal-frame {
     position: relative;
@@ -236,8 +308,6 @@ body {
     margin: 0 auto;
     border-radius: 24px;
     overflow: hidden;
-    user-select: none;
-    -webkit-user-select: none;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04);
 }
 
@@ -252,12 +322,6 @@ body {
     gap: 30px;
 }
 
-.date-reveal-segment {
-    text-align: center;
-}
-
-.std-title { font-size: 0.9rem; letter-spacing: 3px; color: #777; }
-
 .elegant-script-date {
     font-family: var(--font-script) !important;
     font-size: 3.8rem !important;
@@ -267,20 +331,14 @@ body {
     line-height: 1.1;
 }
 
-.timer-inner-layout {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
-}
-
+.timer-inner-layout { display: flex; justify-content: center; gap: 12px; width: 100%; }
 .scratch-canvas-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%23dca134" opacity="0.5"/></svg>'), auto;
+    cursor: crosshair;
     touch-action: none;
     z-index: 20;
     border-radius: 24px;
@@ -293,18 +351,10 @@ body {
 
 
 /* ==========================================================================
-   CARD 3: ELEGANT PORTRAIT CHRONICLE PROFILE CARDS
+   CARD 3: BIOGRAPHY PROFILE SLIDES
    ========================================================================== */
-.story-section-clean {
-    padding: 80px 24px;
-    width: 100%;
-}
-
-.wide-story-body {
-    max-width: 960px !important;
-    width: 100% !important;
-    margin: 0 auto;
-}
+.story-section-clean { padding: 80px 24px; width: 100%; }
+.wide-story-body { max-width: 960px !important; width: 100% !important; margin: 0 auto !important; }
 
 .gallery-card-row {
     display: flex !important;
@@ -330,22 +380,10 @@ body {
     align-items: center;
 }
 
-.card-scenery-header {
-    width: 100%;
-    height: auto; 
-    aspect-ratio: 2744 / 1568; 
-    border-bottom: 1px solid #f3efe6;
-    overflow: hidden;
-}
-
+.card-scenery-header { width: 100%; height: auto; aspect-ratio: 2744 / 1568; border-bottom: 1px solid #f3efe6; overflow: hidden; }
 .groom-allahabad .card-scenery-header { background-color: #f7f2e8 !important; }
 .bride-delhi .card-scenery-header { background-color: #f9ecd2 !important; }
-
-.header-scenery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-}
+.header-scenery-img { width: 100%; height: 100%; object-fit: contain; }
 
 .card-avatar-wrapper {
     width: 130px;
@@ -363,31 +401,11 @@ body {
     z-index: 10;
 }
 
-.avatar-img-fluid {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
+.avatar-img-fluid { width: 100%; height: 100%; object-fit: contain; }
+.bride-scale-fix .avatar-img-fluid { transform: scale(1.65); transform-origin: center center; }
 
-.bride-scale-fix .avatar-img-fluid {
-    transform: scale(1.65);
-    transform-origin: center center;
-}
-
-.elegant-story-card h3 {
-    font-family: var(--font-serif);
-    font-size: 1.9rem;
-    color: #2c3b29;
-    font-weight: 600;
-    margin: 20px 0 12px 0;
-}
-
-.elegant-story-card .bio-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    padding: 0 35px;
-}
+.elegant-story-card h3 { font-family: var(--font-serif); font-size: 1.9rem; color: #2c3b29; font-weight: 600; margin: 20px 0 12px 0; }
+.elegant-story-card .bio-text { font-size: 1rem; line-height: 1.6; color: var(--text-muted); padding: 0 35px; }
 
 .elegant-wide-story-card {
     width: 100%;
@@ -400,67 +418,21 @@ body {
     text-align: center;
 }
 
-.wide-card-header { margin-bottom: 40px; }
 .wide-card-header h3 { font-family: var(--font-serif); font-size: 2.2rem; color: #2c3b29; font-weight: 600; }
+.wide-card-placeholder-text { font-size: 1.05rem; line-height: 1.6; color: var(--text-muted); max-width: 650px; margin: 8px auto 0 auto; }
+.wide-card-photo-flex { display: flex !important; flex-direction: row !important; justify-content: center; align-items: center; gap: 40px; margin-bottom: 50px; width: 100%; }
+.inline-photo-frame { width: 320px; height: 320px; display: flex; justify-content: center; align-items: center; }
+.story-photo-render { width: 100%; height: 100%; object-fit: contain; }
 
-.wide-card-placeholder-text {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    max-width: 650px;
-    margin: 8px auto 0 auto;
-}
-
-.wide-card-photo-flex {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-.inline-photo-frame {
-    width: 320px;
-    height: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent !important; 
-    border: none !important;            
-    box-shadow: none !important;        
-    padding: 0 !important;
-}
-
-.story-photo-render {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-}
-
-.card-scenery-footer {
-    width: calc(100% + 80px); 
-    margin-left: -40px;
-    height: auto; 
-    aspect-ratio: 2752 / 1536; 
-    overflow: hidden;
-    border-top: 1px solid #f3efe6;
-    background-color: #fcfbfa;
-}
-
-.footer-scenery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
+.card-scenery-footer { width: calc(100% + 80px); margin-left: -40px; height: auto; aspect-ratio: 2752 / 1536; overflow: hidden; border-top: 1px solid #f3efe6; background-color: #fcfbfa; }
+.footer-scenery-img { width: 100%; height: 100%; object-fit: contain; }
 
 
 /* ==========================================================================
-   CARD 4: DESKTOP TIMELINE STEM TRACK CONFIGURATION
+   CARD 4: EVENTS TIMELINE MAIN
    ========================================================================== */
-.timeline-body { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 20px; }
-.visual-timeline-container { position: relative; width: 100%; margin-top: 60px; display: flex; flex-direction: column; gap: 60px; }
+.timeline-body { width: 100%; max-width: 960px !important; margin: 0 auto !important; padding: 0 20px; }
+.visual-timeline-container { position: relative; width: 100%; margin-top: 20px; display: flex; flex-direction: column; gap: 60px; }
 
 .timeline-stem-line {
     position: absolute;
@@ -473,15 +445,7 @@ body {
     z-index: 1;
 }
 
-.timeline-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    position: relative;
-    z-index: 5;
-}
-
+.timeline-row { display: flex; align-items: center; justify-content: center; width: 100%; position: relative; z-index: 5; }
 .timeline-col-media, .timeline-col-text { width: 42%; flex-shrink: 0; flex-grow: 0; }
 .timeline-col-node { width: 16%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; flex-grow: 0; }
 
@@ -512,17 +476,10 @@ body {
 .row-right-img .timeline-img-wrapper { justify-content: flex-start; padding-left: 40px; }
 
 .timeline-img-wrapper { width: 100%; display: flex; align-items: center; }
-
-.timeline-graphic {
-    width: 100%;
-    max-width: 220px; 
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.05));
-}
+.timeline-graphic { width: 100%; max-width: 220px; height: auto; object-fit: contain; filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.05)); }
 
 
-/* --- CARD 5 INFRASTRUCTURE & BANNER BANNER --- */
+/* --- CARD 5 & FOOTER MATRICES --- */
 .venue-title { font-family: var(--font-script); font-size: 4rem; color: var(--wedding-pink); font-weight: 400; line-height: 1; }
 .venue-address { font-size: 1.2rem; color: #444; margin: 12px auto 30px auto; font-weight: 500; }
 
@@ -538,7 +495,6 @@ body {
 }
 .directions-btn:hover { transform: scale(1.02); }
 
-/* DEEP BROWN BLOCK CARRIES NATIVE THEME */
 .compact-brown-banner { background-color: #4a3b34; color: #f7f1ed; text-align: center; padding: 35px 20px; width: 100%; }
 .closing-love { letter-spacing: 4px; font-size: 0.85rem; opacity: 0.75; font-weight: 600; }
 .closing-couple { font-family: var(--font-script); font-size: 3.2rem; font-weight: 400; margin: 8px 0; color: #ecdcd3; }
@@ -546,73 +502,36 @@ body {
 
 
 /* ==========================================================================
-   MOBILE DISPLAYS BREAKPOINT ADAPTERS ENGINE (THE TIMELINE PORTRAIT SYSTEM)
+   MOBILE VIEWPORT BREAKPOINT OVERRIDES (NO LINE STACK FLOW)
    ========================================================================== */
 @media (max-width: 768px) {
-    .palace-watermark-bg::before {
-        background-size: 160% auto; 
-    }
-
-    /* --- CARD 3 GALLERY GRID MOBILE BREAKS --- */
-    .gallery-card-row, .wide-card-photo-flex {
-        flex-direction: column !important;
-        align-items: center;
-        gap: 35px;
-    }
-    
+    .palace-watermark-bg::before { background-size: 160% auto; }
+    .gallery-card-row, .wide-card-photo-flex { flex-direction: column !important; align-items: center; gap: 35px; }
     .elegant-story-card { width: 100%; min-height: auto; }
     .inline-photo-frame { width: 260px; height: 260px; }
     .elegant-wide-story-card { padding: 40px 20px 0 20px; }
     .card-scenery-footer { width: calc(100% + 40px); margin-left: -20px; height: auto; }
 
-    /* --- MOBILE NO-LINE SEGMENTS FOR PORTRAIT TIMELINES --- */
+    /* --- MOBILE SCHEDULER CONTROLLER --- */
     .timeline-stem-line { display: none !important; }
-    .timeline-row::after, .timeline-row::before, .timeline-row:not(:last-child)::after {
-        display: none !important;
-        content: none !important;
-    }
-    
-    .visual-timeline-container { margin-top: 40px; gap: 40px !important; }
+    .timeline-row::after, .timeline-row::before, .timeline-row:not(:last-child)::after { display: none !important; content: none !important; }
+    .visual-timeline-container { margin-top: 20px; gap: 40px !important; }
 
     .timeline-row, .row-left-img, .row-right-img {
         flex-direction: column !important;
         align-items: center !important;
         width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        position: relative;
+        padding: 0 0 20px 0 !important;
         margin-bottom: 20px !important;
-        padding-bottom: 20px !important;
     }
     
-    .timeline-col-node {
-        position: relative !important;
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        z-index: 10 !important;
-        margin-bottom: 15px;
-    }
-    
-    .time-pill-badge {
-        font-size: 0.95rem;
-        padding: 8px 18px;
-        background-color: #ffffff !important;
-        border: 1px solid #b8c7b4 !important;
-        border-radius: 30px !important;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05) !important;
-        display: inline-block !important;
-    }
+    .timeline-col-node { position: relative !important; width: 100% !important; display: flex !important; justify-content: center !important; z-index: 10 !important; margin-bottom: 15px; }
+    .time-pill-badge { font-size: 0.95rem; padding: 8px 18px; background-color: #ffffff !important; border: 1px solid #b8c7b4 !important; border-radius: 30px !important; display: inline-block !important; }
 
-    .timeline-col-text, .timeline-col-media {
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        background-color: transparent !important;
-    }
-
+    .timeline-col-text, .timeline-col-media { width: 100% !important; display: flex !important; justify-content: center !important; background-color: transparent !important; }
     .timeline-col-text { order: 1 !important; margin-bottom: 15px; }
     .timeline-col-media { order: 2 !important; }
+    
     .timeline-text-content { text-align: center !important; padding: 0 !important; align-items: center !important; }
     .timeline-text-content h3 { font-size: 1.75rem; }
     .timeline-img-wrapper { justify-content: center !important; padding: 0 !important; }
@@ -621,11 +540,10 @@ body {
 
 @media (max-width: 500px) {
     .main-closed-envelope { width: 92vw; }
-    .invite-headline { font-size: 3.5rem; }
+    .invite-headline { font-size: 3.5rem !important; } /* Safeguards mobile portrait text limits */
     .groom-name, .bride-name { font-size: 3.8rem; }
     .section-title { font-size: 3.2rem; }
     #timer { gap: 8px; }
     .time-box { width: 74px; padding: 14px 2px; }
     .time-box span { font-size: 1.6rem; }
-    .interactive-map-box { height: 200px; max-width: 90vw; }
 }
